@@ -10,6 +10,7 @@
   "author": "Zulfikar Raditya Hernanta <hernantas@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "typescript": "^4.8.3",
     "webpack": "^5.74.0"
   }
 }
