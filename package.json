@@ -11,6 +11,9 @@
     "url": "https://github.com/hernantas/informa/issues"
   },
   "homepage": "https://github.com/hernantas/informa#readme",
+  "workspaces": [
+    "packages/*"
+  ],
   "devDependencies": {
     "prettier": "^2.7.1",
     "prettier-plugin-jsdoc": "^0.4.2",
