@@ -5,7 +5,7 @@ import { ToTypeResolverFn } from './ToTypeResolverFn'
 /**
  * Function interface that takes value resolver function
  * ({@link ToTypeResolverFn} and {@link ToTextResolverFn}) and generate
- * {@link HTMLInputElement} attribute
+ * {@link InputHTMLAttributes} of {@link HTMLInputElement}
  */
 export interface PassFieldFn<T> {
   (
