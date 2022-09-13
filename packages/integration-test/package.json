@@ -1,0 +1,12 @@
+{
+  "name": "integration-test",
+  "version": "0.1.0",
+  "description": "Integration test for informa",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hernantas/informa.git",
+    "directory": "packages/integration-test"
+  },
+  "author": "Zulfikar Raditya Hernanta <hernantas@gmail.com>",
+  "license": "MIT"
+}
