@@ -24,6 +24,10 @@
     "url": "https://github.com/hernantas/informa/issues"
   },
   "homepage": "https://github.com/hernantas/informa#readme",
+  "scripts": {
+    "build": "tsc --build",
+    "build:watch": "tsc --build --watch --preserveWatchOutput"
+  },
   "devDependencies": {
     "@types/react": "^18.0.19",
     "@types/react-dom": "^18.0.6",
