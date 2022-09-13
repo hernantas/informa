@@ -1,3 +1,4 @@
+export * from './controller/base/FormController'
 export * from './controller/base/PassComponentFn'
 export * from './controller/base/PassFieldFn'
 export * from './controller/base/ToTextResolverFn'
