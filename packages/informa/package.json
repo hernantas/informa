@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/hernantas/informa/issues"
   },
-  "homepage": "https://github.com/hernantas/informa#readme"
+  "homepage": "https://github.com/hernantas/informa#readme",
+  "devDependencies": {
+    "typescript": "^4.8.3"
+  }
 }
