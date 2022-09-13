@@ -1,3 +1,4 @@
+export * from './controller/base/PassFieldFn'
 export * from './controller/base/ToTextResolverFn'
 export * from './controller/base/ToTypeResolverFn'
 export * from './props/ChangeFn'
