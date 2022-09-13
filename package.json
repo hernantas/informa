@@ -1,0 +1,14 @@
+{
+  "name": "informa",
+  "description": "Build React Form in component way",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hernantas/informa.git"
+  },
+  "author": "Zulfikar Raditya Hernanta <hernantas@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hernantas/informa/issues"
+  },
+  "homepage": "https://github.com/hernantas/informa#readme"
+}
