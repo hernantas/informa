@@ -24,6 +24,8 @@
     "url": "https://github.com/hernantas/informa/issues"
   },
   "homepage": "https://github.com/hernantas/informa#readme",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc --build",
     "build:watch": "tsc --build --watch --preserveWatchOutput"
