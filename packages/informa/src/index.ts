@@ -1,3 +1,4 @@
+export * from './controller/array/ArrayInsertFn'
 export * from './controller/array/FormIndexedFieldController'
 export * from './controller/base/defaultToTextResolver'
 export * from './controller/base/FormController'
