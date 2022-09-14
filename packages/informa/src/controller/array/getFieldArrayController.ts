@@ -3,7 +3,7 @@ import { DeepPartial } from '../../type/DeepPartial'
 import { useFormProps } from '../../useFormProps'
 import { FormFieldController } from '../field/FormFieldController'
 import { getFieldController } from '../field/getFieldController'
-import { ArrayModifyFn } from './ArrayInsertFn'
+import { ArrayInsertFn } from './ArrayInsertFn'
 import { defaultArrayMergeFn } from './defaultArrayMergeFn'
 import { FormFieldArrayController } from './FormFieldArrayController'
 import { FormIndexedFieldController } from './FormIndexedFieldController'
@@ -44,15 +44,16 @@ export function getFieldArrayController<T>(
       key: generateKey(index, id),
     }))
 
-  const append: ArrayModifyFn<T> = (...newValues) =>
+  const append: ArrayInsertFn<T> = (...newValues) =>
     setValue(values.concat(newValues.length > 0 ? newValues : [undefined]))
-  const prepend: ArrayModifyFn<T> = (...newValues) =>
+  const prepend: ArrayInsertFn<T> = (...newValues) =>
     setValue(
       (newValues.length > 0
         ? newValues
         : ([undefined] as (DeepPartial<T> | undefined)[])
       ).concat(values)
     )
+  const remove: Arra
 
   return {
     value,
