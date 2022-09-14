@@ -4,6 +4,7 @@ import { useFormProps } from '../../useFormProps'
 import { FormFieldController } from '../field/FormFieldController'
 import { getFieldController } from '../field/getFieldController'
 import { ArrayInsertFn } from './ArrayInsertFn'
+import { ArrayRemoveAtFn } from './ArrayRemoveAtFn'
 import { defaultArrayMergeFn } from './defaultArrayMergeFn'
 import { FormFieldArrayController } from './FormFieldArrayController'
 import { FormIndexedFieldController } from './FormIndexedFieldController'
@@ -53,7 +54,8 @@ export function getFieldArrayController<T>(
         : ([undefined] as (DeepPartial<T> | undefined)[])
       ).concat(values)
     )
-  const remove: Arra
+  const removeAt: ArrayRemoveAtFn = (index: number) =>
+    setValue(values.filter((_v, i) => i !== index))
 
   return {
     value,
@@ -67,5 +69,6 @@ export function getFieldArrayController<T>(
     controllers,
     append,
     prepend,
+    removeAt,
   }
 }
