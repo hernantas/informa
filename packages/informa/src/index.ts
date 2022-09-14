@@ -1,4 +1,5 @@
 export * from './controller/array/ArrayInsertFn'
+export * from './controller/array/defaultArrayMergeFn'
 export * from './controller/array/FormFieldArrayController'
 export * from './controller/array/FormIndexedFieldController'
 export * from './controller/base/defaultToTextResolver'
