@@ -28,7 +28,8 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc --build",
-    "build:watch": "tsc --build --watch --preserveWatchOutput"
+    "build:watch": "tsc --build --watch --preserveWatchOutput",
+    "clean": "rimraf *.tsbuildinfo dist"
   },
   "devDependencies": {
     "@types/react": "^18.0.19",
