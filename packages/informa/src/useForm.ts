@@ -1,13 +1,16 @@
 import { FormFieldController } from './controller/field/FormFieldController'
-import { useFieldController } from './controller/field/useFieldController'
+import { getFieldController } from './controller/field/getFieldController'
 import { FormProps } from './props/FormProps'
+import { useFormProps } from './useFormProps'
 
 /**
- * Function alias for {@link useFieldController}
+ * Create controller (similar with {@link getFieldController}) that manage its
+ * own state
  *
  * @param props
  * @returns
  */
 export function useForm<T>(props?: FormProps<T>): FormFieldController<T> {
-  return useFieldController(props)
+  const propsState = useFormProps(props)
+  return getFieldController(propsState)
 }
