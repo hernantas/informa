@@ -29,7 +29,8 @@
   "scripts": {
     "build": "tsc --build",
     "build:watch": "tsc --build --watch --preserveWatchOutput",
-    "clean": "rimraf *.tsbuildinfo dist"
+    "clean": "rimraf *.tsbuildinfo dist",
+    "prepublishOnly": "npm run clean && npm run build"
   },
   "devDependencies": {
     "@types/react": "^18.0.19",
