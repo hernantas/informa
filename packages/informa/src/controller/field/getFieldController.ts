@@ -8,7 +8,7 @@ import { FormFieldGetFn } from './FormFieldGetFn'
 import { FormFieldSetFn } from './FormFieldSetFn'
 import { MergeFn } from './MergeFn'
 import { FormProps } from '../../props/FormProps'
-import { RegisterComponentFn } from './RegisterComponentFn'
+import { RegisterToComponent } from './RegisterToComponent'
 import { RegisterFieldFn } from './RegisterFieldFn'
 
 /**
@@ -45,7 +45,7 @@ export function getFieldController<T>(
       onChange: (event) => setField(key, toTypeResolver(event)),
     }
   }
-  const registerComponent: RegisterComponentFn<T> = (key) => ({
+  const registerComponent: RegisterToComponent<T> = (key) => ({
     value: getField(key),
     onChange: (fieldValue) => setField(key, fieldValue),
   })

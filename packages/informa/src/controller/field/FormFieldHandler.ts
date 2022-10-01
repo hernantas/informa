@@ -1,7 +1,7 @@
 import { FormHandler } from '../base/FormHandler'
 import { FormFieldGetFn } from './FormFieldGetFn'
 import { FormFieldSetFn } from './FormFieldSetFn'
-import { RegisterComponentFn } from './RegisterComponentFn'
+import { RegisterToComponent } from './RegisterToComponent'
 import { RegisterFieldFn } from './RegisterFieldFn'
 
 /**
@@ -12,5 +12,5 @@ export interface FormFieldHandler<T> extends FormHandler<T> {
   getField: FormFieldGetFn<T>
   setField: FormFieldSetFn<T>
   register: RegisterFieldFn<T>
-  registerComponent: RegisterComponentFn<T>
+  registerComponent: RegisterToComponent<T>
 }
