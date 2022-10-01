@@ -6,18 +6,18 @@ import { getFormFieldHandler } from '../field/getFormFieldHandler'
 import { ArrayInsertFn } from './ArrayInsertFn'
 import { ArrayRemoveAtFn } from './ArrayRemoveAtFn'
 import { defaultArrayMergeFn } from './defaultArrayMergeFn'
-import { FormFieldArrayHandler } from './FormFieldArrayHandler'
+import { FormArrayHandler } from './FormArrayHandler'
 import { generateKey } from './generateKey'
 
 /**
- * Generate {@link FormFieldArrayHandler} from given {@link FormProps}
+ * Generate {@link FormArrayHandler} from given {@link FormProps}
  *
  * @param props
  * @returns
  */
-export function getFormFieldArrayHandler<T>(
+export function getFormArrayHandler<T>(
   props: FormProps<T[]>
-): FormFieldArrayHandler<T> {
+): FormArrayHandler<T> {
   const {
     value,
     setValue,
