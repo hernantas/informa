@@ -6,12 +6,12 @@ import { getFieldHandler } from '../field/getFieldHandler'
 import { ArrayInsertFn } from './ArrayInsertFn'
 import { ArrayRemoveAtFn } from './ArrayRemoveAtFn'
 import { defaultArrayMergeFn } from './defaultArrayMergeFn'
-import { FormFieldArrayController } from './FormFieldArrayController'
+import { FormFieldArrayHandler } from './FormFieldArrayHandler'
 import { FormFieldIndexedHandler } from './FormFieldIndexedHandler'
 import { generateKey } from './generateKey'
 
 /**
- * Generate {@link FormFieldArrayController} from given {@link FormProps}
+ * Generate {@link FormFieldArrayHandler} from given {@link FormProps}
  *
  * @param props
  * @param id
@@ -20,7 +20,7 @@ import { generateKey } from './generateKey'
 export function getFieldArrayHandler<T>(
   props: FormProps<T[]>,
   id?: string
-): FormFieldArrayController<T> {
+): FormFieldArrayHandler<T> {
   const {
     value,
     setValue,
