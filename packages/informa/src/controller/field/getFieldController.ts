@@ -3,7 +3,7 @@ import { getFormHandler } from '../base/getFormHandler'
 import { ToTextResolverFn } from '../base/ToTextResolverFn'
 import { ToTypeResolverFn } from '../base/ToTypeResolverFn'
 import { defaultMergeFn } from './defaultMergeFn'
-import { FormFieldController } from './FormFieldController'
+import { FormFieldHandler } from './FormFieldHandler'
 import { FormFieldGetFn } from './FormFieldGetFn'
 import { FormFieldSetFn } from './FormFieldSetFn'
 import { MergeFn } from './MergeFn'
@@ -12,7 +12,7 @@ import { RegisterComponentFn } from './RegisterComponentFn'
 import { RegisterFieldFn } from './RegisterFieldFn'
 
 /**
- * Generate {@link FormFieldController} from given {@link FormProps}
+ * Generate {@link FormFieldHandler} from given {@link FormProps}
  *
  * @param props
  * @param mergeFn
@@ -21,7 +21,7 @@ import { RegisterFieldFn } from './RegisterFieldFn'
 export function getFieldController<T>(
   props: FormProps<T>,
   mergeFn?: MergeFn<T>
-): FormFieldController<T> {
+): FormFieldHandler<T> {
   const { value, setValue, pass, passComponent } = getFormHandler(props)
 
   const mergeValueFn = mergeFn ?? defaultMergeFn

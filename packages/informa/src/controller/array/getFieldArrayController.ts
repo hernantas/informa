@@ -1,7 +1,7 @@
 import { FormProps } from '../../props/FormProps'
 import { DeepPartial } from '../../type/DeepPartial'
 import { useFormProps } from '../../useFormProps'
-import { FormFieldController } from '../field/FormFieldController'
+import { FormFieldHandler } from '../field/FormFieldHandler'
 import { getFieldController } from '../field/getFieldController'
 import { ArrayInsertFn } from './ArrayInsertFn'
 import { ArrayRemoveAtFn } from './ArrayRemoveAtFn'
@@ -38,7 +38,7 @@ export function getFieldArrayController<T>(
       value,
       onChange: (newFieldValue) => setField(index, newFieldValue),
     }))
-    .map<FormFieldController<T>>((props) => getFieldController(props))
+    .map<FormFieldHandler<T>>((props) => getFieldController(props))
     .map<FormIndexedFieldController<T>>((controller, index) => ({
       ...controller,
       index,

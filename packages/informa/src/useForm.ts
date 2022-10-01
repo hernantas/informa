@@ -1,4 +1,4 @@
-import { FormFieldController } from './controller/field/FormFieldController'
+import { FormFieldHandler } from './controller/field/FormFieldHandler'
 import { getFieldController } from './controller/field/getFieldController'
 import { FormProps } from './props/FormProps'
 import { useFormProps } from './useFormProps'
@@ -10,7 +10,7 @@ import { useFormProps } from './useFormProps'
  * @param props
  * @returns
  */
-export function useForm<T>(props?: FormProps<T>): FormFieldController<T> {
+export function useForm<T>(props?: FormProps<T>): FormFieldHandler<T> {
   const propsState = useFormProps(props)
   return getFieldController(propsState)
 }
