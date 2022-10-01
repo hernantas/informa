@@ -5,5 +5,5 @@ import { FormProps } from '../../props/FormProps'
  * handler) property of `<T>` value
  */
 export interface RegisterToComponent<T> {
-  <K extends keyof T>(key: K): Required<FormProps<T[K]>>
+  <K extends keyof T>(key: K): FormProps<T[K]>
 }
