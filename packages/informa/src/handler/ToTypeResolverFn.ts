@@ -1,5 +1,5 @@
 import { ChangeEvent } from 'react'
-import { DeepPartial } from '../../type/DeepPartial'
+import { DeepPartial } from '../type/DeepPartial'
 
 /**
  * Function interface that takes {@link ChangeEvent} of {@link HTMLInputElement}

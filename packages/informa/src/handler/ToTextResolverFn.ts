@@ -1,4 +1,4 @@
-import { DeepPartial } from '../../type/DeepPartial'
+import { DeepPartial } from '../type/DeepPartial'
 
 /**
  * Function interface that takes partial `<T>` value and convert it into value

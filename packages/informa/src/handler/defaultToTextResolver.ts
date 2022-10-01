@@ -1,4 +1,4 @@
-import { DeepPartial } from '../../type/DeepPartial'
+import { DeepPartial } from '../type/DeepPartial'
 import { ToTextResolverFn } from './ToTextResolverFn'
 
 /**

@@ -1,6 +1,6 @@
 import { InputHTMLAttributes } from 'react'
-import { ToTextResolverFn } from '../base/ToTextResolverFn'
-import { ToTypeResolverFn } from '../base/ToTypeResolverFn'
+import { ToTextResolverFn } from '../ToTextResolverFn'
+import { ToTypeResolverFn } from '../ToTypeResolverFn'
 
 /**
  * Function interface that takes value resolver function

@@ -1,5 +1,5 @@
-import { ChangeFn } from '../../props/ChangeFn'
-import { FormProps } from '../../props/FormProps'
+import { ChangeFn } from '../props/ChangeFn'
+import { FormProps } from '../props/FormProps'
 import { defaultToTextResolver } from './defaultToTextResolver'
 import { FormHandler } from './FormHandler'
 import { PassToComponent } from './PassToComponent'

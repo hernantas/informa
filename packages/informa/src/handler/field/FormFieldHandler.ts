@@ -1,4 +1,4 @@
-import { FormHandler } from '../base/FormHandler'
+import { FormHandler } from '../FormHandler'
 import { FormFieldGetFn } from './FormFieldGetFn'
 import { FormFieldSetFn } from './FormFieldSetFn'
 import { RegisterToComponent } from './RegisterToComponent'
