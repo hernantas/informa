@@ -17,7 +17,7 @@ import { generateKey } from './generateKey'
  * @param id
  * @returns
  */
-export function getFieldArrayController<T>(
+export function getFieldArrayHandler<T>(
   props: FormProps<T[]>,
   id?: string
 ): FormFieldArrayController<T> {
