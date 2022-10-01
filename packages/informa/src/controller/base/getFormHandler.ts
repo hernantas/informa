@@ -1,4 +1,4 @@
-import { FormController } from './FormController'
+import { FormHandler } from './FormHandler'
 import { PassComponentFn } from './PassComponentFn'
 import { PassFieldFn } from './PassFieldFn'
 import { ToTextResolverFn } from './ToTextResolverFn'
@@ -7,12 +7,12 @@ import { ChangeFn } from '../../props/ChangeFn'
 import { FormProps } from '../../props/FormProps'
 
 /**
- * Generate {@link FormController} from given {@link FormProps}
+ * Generate {@link FormHandler} from given {@link FormProps}
  *
  * @param props
  * @returns
  */
-export function getController<T>(props: FormProps<T>): FormController<T> {
+export function getFormHandler<T>(props: FormProps<T>): FormHandler<T> {
   const { value, onChange } = props
 
   const setValue: ChangeFn<T> = (newValue) =>

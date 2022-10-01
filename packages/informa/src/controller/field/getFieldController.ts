@@ -1,5 +1,5 @@
 import { defaultToTextResolver } from '../base/defaultToTextResolver'
-import { getController } from '../base/getController'
+import { getFormHandler } from '../base/getFormHandler'
 import { ToTextResolverFn } from '../base/ToTextResolverFn'
 import { ToTypeResolverFn } from '../base/ToTypeResolverFn'
 import { defaultMergeFn } from './defaultMergeFn'
@@ -22,7 +22,7 @@ export function getFieldController<T>(
   props: FormProps<T>,
   mergeFn?: MergeFn<T>
 ): FormFieldController<T> {
-  const { value, setValue, pass, passComponent } = getController(props)
+  const { value, setValue, pass, passComponent } = getFormHandler(props)
 
   const mergeValueFn = mergeFn ?? defaultMergeFn
 
