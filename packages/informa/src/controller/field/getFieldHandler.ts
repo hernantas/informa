@@ -18,7 +18,7 @@ import { RegisterToInput } from './RegisterToInput'
  * @param mergeFn
  * @returns
  */
-export function getFieldController<T>(
+export function getFieldHandler<T>(
   props: FormProps<T>,
   mergeFn?: MergeFn<T>
 ): FormFieldHandler<T> {
