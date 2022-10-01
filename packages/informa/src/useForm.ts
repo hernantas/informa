@@ -1,5 +1,5 @@
-import { FormFieldHandler } from './controller/field/FormFieldHandler'
-import { getFormFieldHandler } from './controller/field/getFormFieldHandler'
+import { FormFieldHandler } from './handler/field/FormFieldHandler'
+import { getFormFieldHandler } from './handler/field/getFormFieldHandler'
 import { FormProps } from './props/FormProps'
 import { useFormProps } from './useFormProps'
 
