@@ -1,5 +1,5 @@
 import { FormHandler } from './FormHandler'
-import { PassComponentFn } from './PassComponentFn'
+import { PassToComponent } from './PassToComponent'
 import { PassFieldFn } from './PassFieldFn'
 import { ToTextResolverFn } from './ToTextResolverFn'
 import { defaultToTextResolver } from './defaultToTextResolver'
@@ -27,7 +27,7 @@ export function getFormHandler<T>(props: FormProps<T>): FormHandler<T> {
     }
   }
 
-  const passComponent: PassComponentFn<T> = () => ({
+  const passComponent: PassToComponent<T> = () => ({
     value,
     onChange: setValue,
   })

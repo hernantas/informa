@@ -1,6 +1,6 @@
 import { FormProps } from '../../props/FormProps'
 
 /** Function interface that generate {@link FormProps} */
-export interface PassComponentFn<T> {
+export interface PassToComponent<T> {
   (): Required<FormProps<T>>
 }
