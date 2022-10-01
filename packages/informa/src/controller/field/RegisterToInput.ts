@@ -8,7 +8,7 @@ import { ToTypeResolverFn } from '../base/ToTypeResolverFn'
  * {@link InputHTMLAttributes} of {@link HTMLInputElement} that handle (its value
  * and handler) property of `<T>` value
  */
-export interface RegisterFieldFn<T> {
+export interface RegisterToInput<T> {
   <K extends keyof T>(
     key: K,
     toTypeResolver: ToTypeResolverFn<T[K]>,

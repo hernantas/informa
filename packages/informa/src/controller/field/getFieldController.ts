@@ -9,7 +9,7 @@ import { FormFieldSetFn } from './FormFieldSetFn'
 import { MergeFn } from './MergeFn'
 import { FormProps } from '../../props/FormProps'
 import { RegisterToComponent } from './RegisterToComponent'
-import { RegisterFieldFn } from './RegisterFieldFn'
+import { RegisterToInput } from './RegisterToInput'
 
 /**
  * Generate {@link FormFieldHandler} from given {@link FormProps}
@@ -33,7 +33,7 @@ export function getFieldController<T>(
   const setField: FormFieldSetFn<T> = (key, newFieldValue) =>
     setValue(mergeValueFn(value, key, newFieldValue))
 
-  const register: RegisterFieldFn<T> = <K extends keyof T>(
+  const register: RegisterToInput<T> = <K extends keyof T>(
     key: K,
     toTypeResolver: ToTypeResolverFn<T[K]>,
     toTextResolver?: ToTextResolverFn<T[K]>
