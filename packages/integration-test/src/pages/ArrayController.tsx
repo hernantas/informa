@@ -1,17 +1,17 @@
-import { getFieldArrayController, useFormProps } from 'informa'
+import { getFormFieldArrayHandler, useFormProps } from 'informa'
 import { TestContainer } from '../components/TestContainer'
 
 export function ArrayController() {
   const props = useFormProps<string[]>({
     value: [undefined],
   })
-  const controller = getFieldArrayController(props)
+  const controller = getFormFieldArrayHandler(props)
 
-  const children = controller.controllers.map((c) => (
-    <div key={c.key}>
-      <span>[{c.index}]</span>
-      <input type="text" {...c.pass((event) => event.target.value)} />
-      <button onClick={() => controller.removeAt(c.index)}>Remove</button>
+  const children = controller.controllers.map((handler, index) => (
+    <div key={handler.key}>
+      <span>[{handler.key}]</span>
+      <input type="text" {...handler.pass((event) => event.target.value)} />
+      <button onClick={() => controller.removeAt(index)}>Remove</button>
     </div>
   ))
 

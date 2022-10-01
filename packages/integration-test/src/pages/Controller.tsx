@@ -1,10 +1,10 @@
-import { getController, useFormProps } from 'informa'
+import { getFormHandler, useFormProps } from 'informa'
 import { useEffect } from 'react'
 import { TestContainer } from '../components/TestContainer'
 
 export function Controller() {
   const props = useFormProps<string>()
-  const controller = getController(props)
+  const controller = getFormHandler(props)
 
   useEffect(() => controller.setValue('SetValue'), [])
 
