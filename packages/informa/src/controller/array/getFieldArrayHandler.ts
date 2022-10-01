@@ -7,7 +7,7 @@ import { ArrayInsertFn } from './ArrayInsertFn'
 import { ArrayRemoveAtFn } from './ArrayRemoveAtFn'
 import { defaultArrayMergeFn } from './defaultArrayMergeFn'
 import { FormFieldArrayController } from './FormFieldArrayController'
-import { FormIndexedFieldController } from './FormIndexedFieldController'
+import { FormFieldIndexedHandler } from './FormFieldIndexedHandler'
 import { generateKey } from './generateKey'
 
 /**
@@ -39,7 +39,7 @@ export function getFieldArrayHandler<T>(
       onChange: (newFieldValue) => setField(index, newFieldValue),
     }))
     .map<FormFieldHandler<T>>((props) => getFieldHandler(props))
-    .map<FormIndexedFieldController<T>>((controller, index) => ({
+    .map<FormFieldIndexedHandler<T>>((controller, index) => ({
       ...controller,
       index,
       key: generateKey(index, id),
