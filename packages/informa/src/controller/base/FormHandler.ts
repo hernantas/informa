@@ -1,5 +1,5 @@
 import { PassToComponent } from './PassToComponent'
-import { PassFieldFn } from './PassFieldFn'
+import { PassToInput } from './PassToInput'
 import { ChangeFn } from '../../props/ChangeFn'
 import { DeepPartial } from '../../type/DeepPartial'
 
@@ -7,6 +7,6 @@ import { DeepPartial } from '../../type/DeepPartial'
 export interface FormHandler<T> {
   value?: DeepPartial<T> | undefined
   setValue: ChangeFn<T>
-  pass: PassFieldFn<T>
+  pass: PassToInput<T>
   passComponent: PassToComponent<T>
 }

@@ -7,7 +7,7 @@ import { ToTypeResolverFn } from './ToTypeResolverFn'
  * ({@link ToTypeResolverFn} and {@link ToTextResolverFn}) and generate
  * {@link InputHTMLAttributes} of {@link HTMLInputElement}
  */
-export interface PassFieldFn<T> {
+export interface PassToInput<T> {
   (
     toTypeResolver: ToTypeResolverFn<T>,
     toTextResolver?: ToTextResolverFn<T>
