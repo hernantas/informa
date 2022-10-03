@@ -5,6 +5,6 @@ import { Key } from 'react'
 /** Form component properties. Can be used as base interface for component props */
 export interface FormProps<T> {
   value?: DeepPartial<T> | undefined
-  onChange?: ChangeFn<T>
+  onChange?: ChangeFn<T> | undefined
   key?: Key | undefined
 }
