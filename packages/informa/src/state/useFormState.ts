@@ -13,8 +13,9 @@ export function useFormState<T>(
     value: initialValue,
   })
 
-  const onChange: ChangeFn<T> = (newValue) =>
+  const setValue: ChangeFn<T> = (newValue) =>
     setState({ type: 'setValue', value: newValue })
+  const onChange: ChangeFn<T> = setValue
   const isLocked = () => state.locked
   const createSubmit: CreateSubmit<T> = (handler) => () => {
     if (!state.locked) {
@@ -28,6 +29,7 @@ export function useFormState<T>(
   return {
     value: state.value,
     onChange,
+    setValue,
     isLocked,
     createSubmit,
   }
