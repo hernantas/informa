@@ -1,3 +1,5 @@
+export * from './controller/FormController'
+export * from './controller/useFormController'
 export * from './handler/array/ArrayInsertFn'
 export * from './handler/array/defaultArrayMergeFn'
 export * from './handler/array/FormArrayHandler'

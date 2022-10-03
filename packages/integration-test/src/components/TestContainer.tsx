@@ -11,7 +11,9 @@ export function TestContainer(props: TestContainerProps) {
     <div style={{ border: '1px solid #eee', padding: '1rem' }}>
       <h1 style={{ margin: 0 }}>{props.title}</h1>
       <div>{props.children}</div>
-      <div style={{ fontSize: '0.8rem', color: '#3f3f3f' }}>{props.result}</div>
+      <div style={{ fontSize: '0.8rem', color: '#3f3f3f' }}>
+        {String(props.result)}
+      </div>
     </div>
   )
 }

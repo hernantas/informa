@@ -1,11 +1,11 @@
-import { getFormFieldArrayHandler, useFormProps } from 'informa'
+import { getFormArrayHandler, useFormProps } from 'informa'
 import { TestContainer } from '../components/TestContainer'
 
 export function ArrayController() {
   const props = useFormProps<string[]>({
     value: [undefined],
   })
-  const controller = getFormFieldArrayHandler(props)
+  const controller = getFormArrayHandler(props)
 
   const children = controller.controllers.map((handler, index) => (
     <div key={handler.key}>
