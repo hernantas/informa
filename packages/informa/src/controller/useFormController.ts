@@ -4,7 +4,7 @@ import { useFormState } from '../state/useFormState'
 import { FormController } from './FormController'
 
 export function useFormController<T>(props?: FormProps<T>): FormController<T> {
-  const formState = useFormState<T>(props)
+  const formState = useFormState<T>(props?.value)
   const { isLocked, createSubmit } = formState
 
   const { value, setValue, pass, passComponent, key } =
