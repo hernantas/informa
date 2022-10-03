@@ -1,4 +1,4 @@
-import { getFormFieldHandler, useFormProps } from 'informa'
+import { useFormFieldController } from 'informa'
 import { TestContainer } from '../components/TestContainer'
 
 interface User {
@@ -9,12 +9,11 @@ interface User {
 }
 
 export function FieldController() {
-  const props = useFormProps<User>({ value: {} })
-  const controller = getFormFieldHandler(props)
+  const { value, register } = useFormFieldController<User>()
 
-  const result = `${props.value?.id}\n${props.value?.username}\n${
-    props.value?.password
-  }\n${props.value?.active ? 'true' : 'false'}`
+  const result = `${value?.id}\n${value?.username}\n${value?.password}\n${
+    value?.active ? 'true' : 'false'
+  }`
   return (
     <TestContainer title="Field Controller" result={result}>
       <table>
@@ -25,10 +24,7 @@ export function FieldController() {
             <td>
               <input
                 type="text"
-                {...controller.register(
-                  'id',
-                  (e) => e.target.value as unknown as number
-                )}
+                {...register('id', (e) => e.target.value as unknown as number)}
               />
             </td>
           </tr>
@@ -38,7 +34,7 @@ export function FieldController() {
             <td>
               <input
                 type="text"
-                {...controller.register('username', (e) => e.target.value)}
+                {...register('username', (e) => e.target.value)}
               />
             </td>
           </tr>
@@ -48,7 +44,7 @@ export function FieldController() {
             <td>
               <input
                 type="text"
-                {...controller.register('password', (e) => e.target.value)}
+                {...register('password', (e) => e.target.value)}
               />
             </td>
           </tr>
@@ -58,7 +54,7 @@ export function FieldController() {
             <td>
               <input
                 type="checkbox"
-                {...controller.register('active', (e) => e.target.checked)}
+                {...register('active', (e) => e.target.checked)}
               />
             </td>
           </tr>
