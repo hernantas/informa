@@ -1,3 +1,5 @@
+export * from './controller/array/FormArrayController'
+export * from './controller/array/useFormArrayController'
 export * from './controller/field/FormFieldController'
 export * from './controller/field/useFormFieldController'
 export * from './controller/FormController'
