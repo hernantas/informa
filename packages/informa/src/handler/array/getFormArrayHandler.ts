@@ -1,6 +1,5 @@
 import { FormProps } from '../../props/FormProps'
 import { DeepPartial } from '../../type/DeepPartial'
-import { useFormProps } from '../../useFormProps'
 import { FormFieldHandler } from '../field/FormFieldHandler'
 import { getFormFieldHandler } from '../field/getFormFieldHandler'
 import { ArrayInsertFn } from './ArrayInsertFn'
@@ -28,7 +27,7 @@ export function getFormArrayHandler<T>(
     setField,
     register,
     registerComponent,
-  } = getFormFieldHandler<T[]>(useFormProps(props), defaultArrayMergeFn)
+  } = getFormFieldHandler<T[]>(props, defaultArrayMergeFn)
   const values = value ?? []
 
   const controllers = values

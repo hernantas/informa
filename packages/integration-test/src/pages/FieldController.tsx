@@ -1,4 +1,4 @@
-import { useFormFieldController } from 'informa'
+import { useFormField } from 'informa'
 import { TestContainer } from '../components/TestContainer'
 
 interface User {
@@ -9,7 +9,7 @@ interface User {
 }
 
 export function FieldController() {
-  const { value, register } = useFormFieldController<User>()
+  const { value, register } = useFormField<User>()
 
   const result = `${value?.id}\n${value?.username}\n${value?.password}\n${
     value?.active ? 'true' : 'false'

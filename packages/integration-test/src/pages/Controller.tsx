@@ -1,9 +1,9 @@
-import { useFormController } from 'informa'
+import { useForm } from 'informa'
 import { useEffect } from 'react'
 import { TestContainer } from '../components/TestContainer'
 
 export function Controller() {
-  const { value, setValue, pass, isLocked, createSubmit } = useFormController({
+  const { value, setValue, pass, isLocked, createSubmit } = useForm({
     value: '',
   })
 
