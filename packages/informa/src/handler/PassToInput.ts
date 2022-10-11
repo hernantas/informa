@@ -1,15 +1,15 @@
-import { InputHTMLAttributes } from 'react'
+import { FormElementAttributes } from '../props/FormElementAttributes'
 import { ToTextResolverFn } from './ToTextResolverFn'
 import { ToTypeResolverFn } from './ToTypeResolverFn'
 
 /**
  * Function interface that takes value resolver function
  * ({@link ToTypeResolverFn} and {@link ToTextResolverFn}) and generate
- * {@link InputHTMLAttributes} of {@link HTMLInputElement}
+ * {@link FormElementAttributes}
  */
 export interface PassToInput<T> {
-  (
-    toTypeResolver: ToTypeResolverFn<T>,
+  <E>(
+    toTypeResolver: ToTypeResolverFn<T, E>,
     toTextResolver?: ToTextResolverFn<T>
-  ): InputHTMLAttributes<HTMLInputElement>
+  ): FormElementAttributes<E>
 }

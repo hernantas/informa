@@ -1,8 +1,6 @@
 import { FormProps } from '../../props/FormProps'
 import { defaultToTextResolver } from '../defaultToTextResolver'
 import { getFormHandler } from '../getFormHandler'
-import { ToTextResolverFn } from '../ToTextResolverFn'
-import { ToTypeResolverFn } from '../ToTypeResolverFn'
 import { defaultMergeFn } from './defaultMergeFn'
 import { FormFieldGetFn } from './FormFieldGetFn'
 import { FormFieldHandler } from './FormFieldHandler'
@@ -33,16 +31,15 @@ export function getFormFieldHandler<T>(
   const setField: FormFieldSetFn<T> = (propKey, newFieldValue) =>
     setValue(mergeValueFn(value, propKey, newFieldValue))
 
-  const register: RegisterToInput<T> = <K extends keyof T>(
-    propKey: K,
-    toTypeResolver: ToTypeResolverFn<T[K]>,
-    toTextResolver?: ToTextResolverFn<T[K]>
+  const register: RegisterToInput<T> = (
+    key,
+    toTypeResolver,
+    toTextResolver
   ) => {
-    const toTextResolverFn: ToTextResolverFn<T[K]> =
-      toTextResolver ?? defaultToTextResolver
+    const toTextResolverFn = toTextResolver ?? defaultToTextResolver
     return {
-      value: toTextResolverFn(getField(propKey)),
-      onChange: (event) => setField(propKey, toTypeResolver(event)),
+      value: toTextResolverFn(getField(key)),
+      onChange: (event) => setField(key, toTypeResolver(event)),
     }
   }
   const registerComponent: RegisterToComponent<T> = (propKey) => ({

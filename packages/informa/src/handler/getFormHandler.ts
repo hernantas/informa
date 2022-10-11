@@ -12,7 +12,9 @@ import { ToTextResolverFn } from './ToTextResolverFn'
  * @param props
  * @returns
  */
-export function getFormHandler<T>(props: FormProps<T>): FormHandler<T> {
+export function getFormHandler<T>(
+  props: FormProps<T>
+): FormHandler<T> {
   const { value, onChange, key } = props
 
   const setValue: ChangeFn<T> = (newValue) =>

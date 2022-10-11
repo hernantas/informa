@@ -3,7 +3,7 @@ import { ToTextResolverFn } from './ToTextResolverFn'
 
 /**
  * Default implementation of {@link ToTextResolverFn} that transform partial
- * `<T>` into value that can accepted by {@link HTMLInputElement}
+ * `<T>` into a compatible value
  *
  * @param value
  * @returns
