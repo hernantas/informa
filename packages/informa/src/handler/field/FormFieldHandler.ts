@@ -2,7 +2,7 @@ import { FormHandler } from '../FormHandler'
 import { FormFieldGetFn } from './FormFieldGetFn'
 import { FormFieldSetFn } from './FormFieldSetFn'
 import { RegisterToComponent } from './RegisterToComponent'
-import { RegisterToInput } from './RegisterToInput'
+import { RegisterToHtml } from './RegisterToHtml'
 
 /**
  * Extended version of {@link FormHandler} that can control form and partially
@@ -11,6 +11,6 @@ import { RegisterToInput } from './RegisterToInput'
 export interface FormFieldHandler<T> extends FormHandler<T> {
   getField: FormFieldGetFn<T>
   setField: FormFieldSetFn<T>
-  register: RegisterToInput<T>
+  register: RegisterToHtml<T>
   registerComponent: RegisterToComponent<T>
 }

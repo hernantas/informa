@@ -7,7 +7,7 @@ import { FormFieldHandler } from './FormFieldHandler'
 import { FormFieldSetFn } from './FormFieldSetFn'
 import { MergeFn } from './MergeFn'
 import { RegisterToComponent } from './RegisterToComponent'
-import { RegisterToInput } from './RegisterToInput'
+import { RegisterToHtml } from './RegisterToHtml'
 
 /**
  * Generate {@link FormFieldHandler} from given {@link FormProps}
@@ -31,11 +31,7 @@ export function getFormFieldHandler<T>(
   const setField: FormFieldSetFn<T> = (propKey, newFieldValue) =>
     setValue(mergeValueFn(value, propKey, newFieldValue))
 
-  const register: RegisterToInput<T> = (
-    key,
-    toTypeResolver,
-    toTextResolver
-  ) => {
+  const register: RegisterToHtml<T> = (key, toTypeResolver, toTextResolver) => {
     const toTextResolverFn = toTextResolver ?? defaultToTextResolver
     return {
       value: toTextResolverFn(getField(key)),

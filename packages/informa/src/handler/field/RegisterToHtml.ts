@@ -8,7 +8,7 @@ import { ToTypeResolverFn } from '../ToTypeResolverFn'
  * {@link FormElementAttributes} that handle (its value and handler) property of
  * `<T>` value
  */
-export interface RegisterToInput<T> {
+export interface RegisterToHtml<T> {
   <K extends keyof T, E>(
     key: K,
     toTypeResolver: ToTypeResolverFn<T[K], E>,

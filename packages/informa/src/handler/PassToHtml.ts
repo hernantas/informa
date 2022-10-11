@@ -7,7 +7,7 @@ import { ToTypeResolverFn } from './ToTypeResolverFn'
  * ({@link ToTypeResolverFn} and {@link ToTextResolverFn}) and generate
  * {@link FormElementAttributes}
  */
-export interface PassToInput<T> {
+export interface PassToHtml<T> {
   <E>(
     toTypeResolver: ToTypeResolverFn<T, E>,
     toTextResolver?: ToTextResolverFn<T>

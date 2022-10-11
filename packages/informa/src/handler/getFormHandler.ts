@@ -3,7 +3,7 @@ import { FormProps } from '../props/FormProps'
 import { defaultToTextResolver } from './defaultToTextResolver'
 import { FormHandler } from './FormHandler'
 import { PassToComponent } from './PassToComponent'
-import { PassToInput } from './PassToInput'
+import { PassToHtml } from './PassToHtml'
 import { ToTextResolverFn } from './ToTextResolverFn'
 
 /**
@@ -12,15 +12,13 @@ import { ToTextResolverFn } from './ToTextResolverFn'
  * @param props
  * @returns
  */
-export function getFormHandler<T>(
-  props: FormProps<T>
-): FormHandler<T> {
+export function getFormHandler<T>(props: FormProps<T>): FormHandler<T> {
   const { value, onChange, key } = props
 
   const setValue: ChangeFn<T> = (newValue) =>
     onChange !== undefined ? onChange(newValue) : void 0
 
-  const pass: PassToInput<T> = (toTypeResolver, toTextResolver) => {
+  const pass: PassToHtml<T> = (toTypeResolver, toTextResolver) => {
     const toTextResolverFn: ToTextResolverFn<T> =
       toTextResolver ?? defaultToTextResolver
     return {
