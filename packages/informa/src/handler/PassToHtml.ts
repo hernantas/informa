@@ -1,4 +1,4 @@
-import { FieldAttributes } from '../props/FieldAttributes'
+import { FieldAttributes } from '../type/FieldAttributes'
 import { ToTextResolverFn } from '../resolver/ToTextResolverFn'
 import { ToTypeResolverFn } from '../resolver/ToTypeResolverFn'
 
