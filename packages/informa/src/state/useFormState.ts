@@ -1,33 +1,28 @@
-import { useReducer } from 'react'
+import { useState } from 'react'
 import { ChangeFn } from '../props/ChangeFn'
 import { DeepPartial } from '../type/DeepPartial'
-import { CreateSubmit } from './type/CreateSubmit'
-import { FormStateProps } from './FormStateProps'
-import { formStateReducer } from './reducer/formStateReducer'
+import { CreateSubmit } from './CreateSubmit'
+import { FormState } from './FormState'
 
 export function useFormState<T>(
   initialValue?: DeepPartial<T> | undefined
-): FormStateProps<T> {
-  const [state, setState] = useReducer(formStateReducer, {
-    locked: false,
-    value: initialValue,
-  })
+): FormState<T> {
+  const [locked, setLocked] = useState(false)
+  const [value, setValue] = useState<DeepPartial<T> | undefined>(initialValue)
 
-  const setValue: ChangeFn<T> = (newValue) =>
-    setState({ type: 'setValue', value: newValue })
   const onChange: ChangeFn<T> = setValue
-  const isLocked = () => state.locked
+  const isLocked = () => locked
   const createSubmit: CreateSubmit<T> = (handler) => () => {
-    if (!state.locked) {
-      Promise.resolve(state.value)
-        .finally(() => setState({ type: 'lock' }))
+    if (!locked) {
+      Promise.resolve(value)
+        .finally(() => setLocked(true))
         .then(handler)
-        .finally(() => setState({ type: 'unlock' }))
+        .finally(() => setLocked(false))
     }
   }
 
   return {
-    value: state.value,
+    value,
     onChange,
     setValue,
     isLocked,

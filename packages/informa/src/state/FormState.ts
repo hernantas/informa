@@ -1,7 +1,10 @@
-import { DeepPartial } from '../type/DeepPartial'
+import { ChangeFn } from '../props/ChangeFn'
+import { FormProps } from '../props/FormProps'
+import { CreateSubmit } from './CreateSubmit'
+import { StateCheck } from './StateCheck'
 
-/** @internal */
-export interface FormState<T> {
-  value?: DeepPartial<T> | undefined
-  locked: boolean
+export interface FormState<T> extends FormProps<T> {
+  setValue: ChangeFn<T>
+  isLocked: StateCheck
+  createSubmit: CreateSubmit<T>
 }

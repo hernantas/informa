@@ -1,6 +1,4 @@
 import { FormHandler } from '../handler/FormHandler'
-import { FormStateControl } from '../state/FormStateControl'
+import { FormState } from '../state/FormState'
 
-export interface FormController<T>
-  extends FormHandler<T>,
-    FormStateControl<T> {}
+export interface FormController<T> extends FormState<T>, FormHandler<T> {}
