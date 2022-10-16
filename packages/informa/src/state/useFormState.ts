@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { ChangeFn } from '../props/ChangeFn'
 import { DeepPartial } from '../type/DeepPartial'
-import { CreateSubmit } from './CreateSubmit'
+import { CreateAction } from './CreateAction'
 import { FormState } from './FormState'
 
 export function useFormState<T>(
@@ -12,7 +12,7 @@ export function useFormState<T>(
 
   const onChange: ChangeFn<T> = setValue
   const isLocked = () => locked
-  const createSubmit: CreateSubmit<T> = (handler) => () => {
+  const createSubmit: CreateAction<T> = (handler) => () => {
     if (!locked) {
       Promise.resolve(value)
         .finally(() => setLocked(true))
