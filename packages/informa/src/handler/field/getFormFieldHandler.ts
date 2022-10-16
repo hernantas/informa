@@ -1,11 +1,11 @@
 import { FormProps } from '../../props/FormProps'
+import { MergeFn } from '../../merge/MergeFn'
+import { mergeObject } from '../../merge/mergeObject'
 import { defaultToTextResolver } from '../defaultToTextResolver'
 import { getFormHandler } from '../getFormHandler'
-import { defaultMergeFn } from './defaultMergeFn'
 import { FormFieldGetFn } from './FormFieldGetFn'
 import { FormFieldHandler } from './FormFieldHandler'
 import { FormFieldSetFn } from './FormFieldSetFn'
-import { MergeFn } from './MergeFn'
 import { RegisterToComponent } from './RegisterToComponent'
 import { RegisterToHtml } from './RegisterToHtml'
 
@@ -22,7 +22,7 @@ export function getFormFieldHandler<T>(
 ): FormFieldHandler<T> {
   const { value, setValue, pass, passComponent, key } = getFormHandler(props)
 
-  const mergeValueFn = mergeFn ?? defaultMergeFn
+  const mergeValueFn: MergeFn<T> = mergeFn ?? mergeObject
 
   const getField: FormFieldGetFn<T> = (propKey, defaultFieldValue) =>
     value !== undefined && value[propKey] !== undefined
