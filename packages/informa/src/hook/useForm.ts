@@ -2,8 +2,8 @@ import { FormFieldControl } from '../control/field/FormFieldControl'
 import { useFormFieldControl } from '../control/field/useFormFieldControl'
 import { LockedState } from '../state/locked/LockedState'
 import { useLocked } from '../state/locked/useLocked'
-import { CreateAction } from './CreateAction'
 import { DeepPartial } from '../type/DeepPartial'
+import { CreateAction } from './CreateAction'
 
 export interface FormController<T> extends FormFieldControl<T>, LockedState {
   createSubmit: CreateAction<T>
@@ -24,10 +24,10 @@ export function useForm<T>(initialValue?: DeepPartial<T>): FormController<T> {
     value: initialValue,
   })
 
-  const { locked, lock, unlock } = useLocked()
+  const { isLocked, lock, unlock } = useLocked()
 
   const createSubmit: CreateAction<T> = (handler) => () => {
-    if (!locked) {
+    if (!isLocked()) {
       Promise.resolve(value)
         .finally(() => lock())
         .then(handler)
@@ -45,7 +45,7 @@ export function useForm<T>(initialValue?: DeepPartial<T>): FormController<T> {
     setField,
     register,
     registerComponent,
-    locked,
+    isLocked,
     lock,
     unlock,
     createSubmit,
