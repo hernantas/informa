@@ -1,5 +1,5 @@
-import { FormController } from './controller/FormController'
-import { useFormController } from './controller/useFormController'
+import { FormControl } from './control/FormControl'
+import { useFormControl } from './control/useFormControl'
 import { getFormHandler } from './handler/getFormHandler'
 import { FormProps } from './props/FormProps'
 
@@ -10,6 +10,6 @@ import { FormProps } from './props/FormProps'
  * @param props
  * @returns
  */
-export function useForm<T>(props?: FormProps<T>): FormController<T> {
-  return useFormController(props)
+export function useForm<T>(props?: FormProps<T>): FormControl<T> {
+  return useFormControl(props)
 }

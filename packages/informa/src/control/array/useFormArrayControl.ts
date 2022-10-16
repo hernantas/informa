@@ -1,11 +1,11 @@
 import { getFormArrayHandler } from '../../handler/array/getFormArrayHandler'
 import { FormProps } from '../../props/FormProps'
 import { useFormState } from '../../state/useFormState'
-import { FormArrayController } from './FormArrayController'
+import { FormArrayControl } from './FormArrayControl'
 
-export function useFormArrayController<T>(
+export function useFormArrayControl<T>(
   props?: FormProps<T[]>
-): FormArrayController<T> {
+): FormArrayControl<T> {
   const formState = useFormState<T[]>(props?.value)
   const { isLocked, createSubmit } = formState
 

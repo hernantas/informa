@@ -1,9 +1,9 @@
 import { getFormHandler } from '../handler/getFormHandler'
 import { FormProps } from '../props/FormProps'
 import { useFormState } from '../state/useFormState'
-import { FormController } from './FormController'
+import { FormControl } from './FormControl'
 
-export function useFormController<T>(props?: FormProps<T>): FormController<T> {
+export function useFormControl<T>(props?: FormProps<T>): FormControl<T> {
   const formState = useFormState<T>(props?.value)
   const { isLocked, createSubmit } = formState
 
