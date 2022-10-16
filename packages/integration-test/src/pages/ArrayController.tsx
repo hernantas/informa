@@ -1,10 +1,12 @@
-import { useFormArray } from 'informa'
+import { useFormArrayControl } from 'informa'
 import { TestContainer } from '../components/TestContainer'
 
 export function ArrayController() {
-  const { value, controllers, append, prepend, removeAt } = useFormArray({
-    value: [undefined],
-  })
+  const { value, controllers, append, prepend, removeAt } = useFormArrayControl(
+    {
+      value: [undefined],
+    }
+  )
 
   const children = controllers.map((handler, index) => (
     <div key={handler.key}>
