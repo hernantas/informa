@@ -1,13 +1,12 @@
 import { getFormFieldHandler } from '../../handler/field/getFormFieldHandler'
 import { FormProps } from '../../props/FormProps'
-import { useFormState } from '../../state/useFormState'
+import { useValue } from '../../state/value/useValue'
 import { FormFieldControl } from './FormFieldControl'
 
 export function useFormFieldControl<T>(
   props?: FormProps<T>
 ): FormFieldControl<T> {
-  const formState = useFormState<T>(props?.value)
-  const { isLocked, createSubmit } = formState
+  const valueState = useValue(props?.value)
 
   const {
     value,
@@ -19,7 +18,10 @@ export function useFormFieldControl<T>(
     setField,
     register,
     registerComponent,
-  } = getFormFieldHandler(formState)
+  } = getFormFieldHandler({
+    value: valueState.value,
+    onChange: valueState.setValue,
+  })
 
   return {
     value,
@@ -31,7 +33,5 @@ export function useFormFieldControl<T>(
     setField,
     register,
     registerComponent,
-    isLocked,
-    createSubmit,
   }
 }

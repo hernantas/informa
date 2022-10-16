@@ -1,13 +1,12 @@
 import { getFormArrayHandler } from '../../handler/array/getFormArrayHandler'
 import { FormProps } from '../../props/FormProps'
-import { useFormState } from '../../state/useFormState'
+import { useValue } from '../../state/value/useValue'
 import { FormArrayControl } from './FormArrayControl'
 
 export function useFormArrayControl<T>(
   props?: FormProps<T[]>
 ): FormArrayControl<T> {
-  const formState = useFormState<T[]>(props?.value)
-  const { isLocked, createSubmit } = formState
+  const valueState = useValue(props?.value)
 
   const {
     value,
@@ -22,7 +21,10 @@ export function useFormArrayControl<T>(
     append,
     prepend,
     removeAt,
-  } = getFormArrayHandler(formState)
+  } = getFormArrayHandler({
+    value: valueState.value,
+    onChange: valueState.setValue,
+  })
 
   return {
     value,
@@ -37,7 +39,5 @@ export function useFormArrayControl<T>(
     append,
     prepend,
     removeAt,
-    isLocked,
-    createSubmit,
   }
 }
