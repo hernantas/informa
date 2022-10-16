@@ -8,14 +8,14 @@ interface User {
   active: boolean
 }
 
-export function FieldController() {
+export function FieldControl() {
   const { value, register } = useFormFieldControl<User>()
 
   const result = `${value?.id}\n${value?.username}\n${value?.password}\n${
     value?.active ? 'true' : 'false'
   }`
   return (
-    <TestContainer title="Field Controller" result={result}>
+    <TestContainer title="Field Control" result={result}>
       <table>
         <tbody>
           <tr>

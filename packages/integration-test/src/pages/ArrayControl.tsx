@@ -1,7 +1,7 @@
 import { useFormArrayControl } from 'informa'
 import { TestContainer } from '../components/TestContainer'
 
-export function ArrayController() {
+export function ArrayControl() {
   const { value, controllers, append, prepend, removeAt } = useFormArrayControl(
     {
       value: [undefined],
@@ -17,7 +17,7 @@ export function ArrayController() {
   ))
 
   return (
-    <TestContainer title="Array Controller" result={value}>
+    <TestContainer title="Array Control" result={value}>
       <div>
         <button onClick={() => prepend()}>Prepend</button>
         <button onClick={() => append()}>Append</button>

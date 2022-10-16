@@ -1,13 +1,13 @@
 import { useFormControl } from 'informa'
 import { TestContainer } from '../components/TestContainer'
 
-export function Controller() {
+export function Control() {
   const { value, pass } = useFormControl({
     value: '',
   })
 
   return (
-    <TestContainer title="Controller" result={value}>
+    <TestContainer title="Control" result={value}>
       <input type="text" {...pass((event) => event.target.value)} />
     </TestContainer>
   )
