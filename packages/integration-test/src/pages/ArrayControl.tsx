@@ -8,10 +8,10 @@ export function ArrayControl() {
     }
   )
 
-  const children = controllers.map((handler, index) => (
-    <div key={handler.key}>
-      <span>[{handler.key}]</span>
-      <input type="text" {...handler.pass((event) => event.target.value)} />
+  const children = controllers.map(({ key, pass }, index) => (
+    <div key={key}>
+      <span>[{key}]</span>
+      <input type="text" {...pass((event) => event.target.value)} />
       <button onClick={() => removeAt(index)}>Remove</button>
     </div>
   ))
