@@ -1,6 +1,6 @@
 import { FormElementAttributes } from '../props/FormElementAttributes'
-import { ToTextResolverFn } from './ToTextResolverFn'
-import { ToTypeResolverFn } from './ToTypeResolverFn'
+import { ToTextResolverFn } from '../resolver/ToTextResolverFn'
+import { ToTypeResolverFn } from '../resolver/ToTypeResolverFn'
 
 /**
  * Function interface that takes value resolver function

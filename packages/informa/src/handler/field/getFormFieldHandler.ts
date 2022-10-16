@@ -1,7 +1,7 @@
-import { FormProps } from '../../props/FormProps'
 import { MergeFn } from '../../merge/MergeFn'
 import { mergeObject } from '../../merge/mergeObject'
-import { defaultToTextResolver } from '../defaultToTextResolver'
+import { FormProps } from '../../props/FormProps'
+import { resolveToText } from '../../resolver/resolveToText'
 import { getFormHandler } from '../getFormHandler'
 import { FormFieldGetFn } from './FormFieldGetFn'
 import { FormFieldHandler } from './FormFieldHandler'
@@ -32,7 +32,7 @@ export function getFormFieldHandler<T>(
     setValue(mergeValueFn(value, propKey, newFieldValue))
 
   const register: RegisterToHtml<T> = (key, toTypeResolver, toTextResolver) => {
-    const toTextResolverFn = toTextResolver ?? defaultToTextResolver
+    const toTextResolverFn = toTextResolver ?? resolveToText
     return {
       value: toTextResolverFn(getField(key)),
       onChange: (event) => setField(key, toTypeResolver(event)),
