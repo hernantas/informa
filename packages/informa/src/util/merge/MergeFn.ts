@@ -1,4 +1,4 @@
-import { DeepPartial } from '../type/DeepPartial'
+import { DeepPartial } from '../../type/DeepPartial'
 
 /**
  * Function interface for creating a new `<T>` value with its selected `<K>`

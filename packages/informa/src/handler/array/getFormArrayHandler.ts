@@ -1,6 +1,6 @@
 import { FormProps } from '../../props/FormProps'
 import { DeepPartial } from '../../type/DeepPartial'
-import { mergeArray } from '../../merge/mergeArray'
+import { mergeArray } from '../../util/merge/mergeArray'
 import { FormFieldHandler } from '../field/FormFieldHandler'
 import { getFormFieldHandler } from '../field/getFormFieldHandler'
 import { ArrayInsertFn } from './ArrayInsertFn'

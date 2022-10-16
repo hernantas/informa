@@ -1,6 +1,6 @@
 import { FieldAttributes } from '../type/FieldAttributes'
-import { ToTextResolverFn } from '../resolver/ToTextResolverFn'
-import { ToTypeResolverFn } from '../resolver/ToTypeResolverFn'
+import { ToTextResolverFn } from '../util/resolver/ToTextResolverFn'
+import { ToTypeResolverFn } from '../util/resolver/ToTypeResolverFn'
 
 /**
  * Function interface that takes value resolver function
