@@ -6,10 +6,8 @@ import { FormControl } from './FormControl'
 export function useFormControl<T>(props?: FormProps<T>): FormControl<T> {
   const valueState = useValue(props?.value)
 
-  const { value, setValue, pass, passComponent, key } = getFormHandler({
-    value: valueState.value,
-    onChange: valueState.setValue,
-  })
+  const { value, setValue, pass, passComponent, key } =
+    getFormHandler(valueState)
 
   return {
     value,
