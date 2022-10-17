@@ -1,4 +1,4 @@
-import { Action } from '../type/Action'
+import { Action } from '../../type/Action'
 import { OnActionHandler } from './OnActionHandler'
 
 export interface CreateAction<T> {
