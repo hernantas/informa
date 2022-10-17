@@ -6,7 +6,7 @@ import { getFormFieldHandler } from '../field/getFormFieldHandler'
 import { ArrayInsertFn } from './ArrayInsertFn'
 import { ArrayRemoveAtFn } from './ArrayRemoveAtFn'
 import { FormArrayHandler } from './FormArrayHandler'
-import { generateKey } from './generateKey'
+import { generateKey } from '../../util/generateKey'
 
 /**
  * Generate {@link FormArrayHandler} from given {@link FormProps}
