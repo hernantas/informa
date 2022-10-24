@@ -1,12 +1,12 @@
 import { FormProps } from '../../props/FormProps'
 import { DeepPartial } from '../../type/DeepPartial'
+import { generateKey } from '../../util/generateKey'
 import { mergeArray } from '../../util/merge/mergeArray'
 import { FormFieldHandler } from '../field/FormFieldHandler'
 import { getFormFieldHandler } from '../field/getFormFieldHandler'
 import { ArrayInsertFn } from './ArrayInsertFn'
 import { ArrayRemoveAtFn } from './ArrayRemoveAtFn'
 import { FormArrayHandler } from './FormArrayHandler'
-import { generateKey } from '../../util/generateKey'
 
 /**
  * Generate {@link FormArrayHandler} from given {@link FormProps}
@@ -30,7 +30,7 @@ export function getFormArrayHandler<T>(
   } = getFormFieldHandler<T[]>(props, mergeArray)
   const values = value ?? []
 
-  const controllers = values
+  const handlers = values
     .map<FormProps<T>>((value, index) => ({
       value,
       onChange: (newFieldValue) => setField(index, newFieldValue),
@@ -63,7 +63,7 @@ export function getFormArrayHandler<T>(
     setField,
     register,
     registerComponent,
-    controllers,
+    handlers,
     append,
     prepend,
     removeAt,
