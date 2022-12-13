@@ -58,15 +58,9 @@ export function getFormGroupHandler<T>(
   const registerComponent: RegisterToComponent<T> = (propKey) => ({
     value: getField(propKey),
     setValue: (fieldValue) => setField(propKey, fieldValue),
-    dirty,
     markDirty,
-    resetDirty,
-    touched,
     markTouched,
-    resetTouched,
-    error,
     setError,
-    clearError,
   })
 
   return {
