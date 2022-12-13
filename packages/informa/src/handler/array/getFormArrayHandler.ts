@@ -40,6 +40,9 @@ export function getFormArrayHandler<T>(
     .map<FormProps<T>>((value, index) => ({
       value,
       setValue: (newFieldValue) => setField(index, newFieldValue),
+      dirty,
+      markDirty,
+      resetDirty,
       touched,
       markTouched,
       resetTouched,
