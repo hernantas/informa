@@ -7,8 +7,13 @@ import { FormArrayControl } from './FormArrayControl'
 export function useFormArray<T>(props?: FormProps<T[]>): FormArrayControl<T> {
   const valueState = useValue(props)
   const {
+    key,
     value,
     setValue,
+    dirty,
+    markDirty,
+    resetDirty,
+    reset,
     pass,
     passComponent,
     getField,
@@ -26,8 +31,13 @@ export function useFormArray<T>(props?: FormProps<T[]>): FormArrayControl<T> {
     useAction(value)
 
   return {
+    key,
     value,
     setValue,
+    dirty,
+    markDirty,
+    resetDirty,
+    reset,
     pass,
     passComponent,
     getField,

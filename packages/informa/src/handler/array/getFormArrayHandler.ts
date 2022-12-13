@@ -17,11 +17,15 @@ export function getFormArrayHandler<T>(
   props: FormProps<T[]>
 ): FormArrayHandler<T> {
   const {
+    key,
     value,
     setValue,
+    dirty,
+    markDirty,
+    resetDirty,
+    reset,
     pass,
     passComponent,
-    key,
     getField,
     setField,
     register,
@@ -47,8 +51,13 @@ export function getFormArrayHandler<T>(
     setValue(values.filter((_v, i) => i !== index))
 
   return {
+    key,
     value,
     setValue,
+    dirty,
+    markDirty,
+    resetDirty,
+    reset,
     pass,
     passComponent,
     getField,

@@ -1,12 +1,13 @@
 import { FormProps, useForm } from 'informa'
+import { mergeClass } from '../util/mergeClass'
 
 export function StringField(props: FormProps<string>) {
-  const { pass } = useForm(props)
+  const { dirty, pass } = useForm(props)
   return (
     <input
       {...pass((e) => e.target.value)}
       type="text"
-      className="border py-2 px-3"
+      className={mergeClass('border py-2 px-3', dirty && 'border-slate-900')}
     />
   )
 }

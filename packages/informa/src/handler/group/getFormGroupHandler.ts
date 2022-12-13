@@ -20,7 +20,17 @@ export function getFormGroupHandler<T>(
   props: FormProps<T>,
   mergeFn?: MergeFn<T>
 ): FormGroupHandler<T> {
-  const { value, setValue, pass, passComponent, key } = getFormHandler(props)
+  const {
+    key,
+    value,
+    setValue,
+    dirty,
+    markDirty,
+    resetDirty,
+    reset,
+    pass,
+    passComponent,
+  } = getFormHandler(props)
 
   const mergeValueFn: MergeFn<T> = mergeFn ?? mergeObject
 
@@ -44,11 +54,15 @@ export function getFormGroupHandler<T>(
   })
 
   return {
+    key,
     value,
     setValue,
+    dirty,
+    markDirty,
+    resetDirty,
+    reset,
     pass,
     passComponent,
-    key,
     getField,
     setField,
     register,

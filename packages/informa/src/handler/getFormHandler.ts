@@ -1,3 +1,4 @@
+import { Action } from '../type/Action'
 import { ChangeFn } from '../type/ChangeFn'
 import { resolveToText } from '../util/resolver/resolveToText'
 import { ToTextResolverFn } from '../util/resolver/ToTextResolverFn'
@@ -15,7 +16,18 @@ import { PassToHtml } from './PassToHtml'
 export function getFormHandler<T>(props: FormProps<T>): FormHandler<T> {
   const { value, key } = props
 
-  const setValue: ChangeFn<T> = props.setValue ?? (() => void 0)
+  const dirty = props.dirty ?? false
+  const markDirty: Action = props.markDirty ?? (() => void 0)
+  const resetDirty: Action = props.resetDirty ?? (() => void 0)
+
+  const setValue: ChangeFn<T> = (newValue) => {
+    props.setValue?.call(undefined, newValue)
+    markDirty()
+  }
+
+  const reset: Action = () => {
+    resetDirty()
+  }
 
   const pass: PassToHtml<T> = (toTypeResolver, toTextResolver) => {
     const toTextResolverFn: ToTextResolverFn<T> =
@@ -28,16 +40,23 @@ export function getFormHandler<T>(props: FormProps<T>): FormHandler<T> {
   }
 
   const passComponent: PassToComponent<T> = () => ({
+    key,
     value,
     setValue,
-    key,
+    dirty,
+    markDirty,
+    resetDirty,
   })
 
   return {
+    key,
     value,
     setValue,
+    dirty,
+    markDirty,
+    resetDirty,
+    reset,
     pass,
     passComponent,
-    key,
   }
 }
