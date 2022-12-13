@@ -1,11 +1,11 @@
-import { getFormFieldHandler } from '../../handler/field/getFormFieldHandler'
+import { getFormGroupHandler } from '../../handler/group/getFormGroupHandler'
 import { FormProps } from '../../props/FormProps'
 import { useValue } from '../../state/value/useValue'
-import { FormFieldControl } from './FormFieldControl'
+import { FormGroupControl } from './FormGroupControl'
 
-export function useFormFieldControl<T>(
+export function useFormGroupControl<T>(
   props?: FormProps<T>
-): FormFieldControl<T> {
+): FormGroupControl<T> {
   const valueState = useValue(props?.value)
 
   const {
@@ -18,7 +18,7 @@ export function useFormFieldControl<T>(
     setField,
     register,
     registerComponent,
-  } = getFormFieldHandler({
+  } = getFormGroupHandler({
     value: valueState.value,
     onChange: valueState.setValue,
   })

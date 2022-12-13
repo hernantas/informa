@@ -1,4 +1,4 @@
-import { useFormFieldControl } from '../control/field/useFormFieldControl'
+import { useFormGroupControl } from '../control/group/useFormGroupControl'
 import { useAction } from '../state/action/useAction'
 import { DeepPartial } from '../type/DeepPartial'
 import { FormController } from './FormController'
@@ -14,7 +14,7 @@ export function useForm<T>(initialValue?: DeepPartial<T>): FormController<T> {
     setField,
     register,
     registerComponent,
-  } = useFormFieldControl({
+  } = useFormGroupControl({
     value: initialValue,
   })
 

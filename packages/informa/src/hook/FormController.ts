@@ -1,6 +1,6 @@
-import { FormFieldControl } from '../control/field/FormFieldControl'
+import { FormGroupControl } from '../control/group/FormGroupControl'
 import { ActionState } from '../state/action/ActionState'
 
 export interface FormController<T>
-  extends FormFieldControl<T>,
+  extends FormGroupControl<T>,
     ActionState<T> {}

@@ -3,32 +3,32 @@ import { mergeObject } from '../../util/merge/mergeObject'
 import { FormProps } from '../../props/FormProps'
 import { resolveToText } from '../../util/resolver/resolveToText'
 import { getFormHandler } from '../getFormHandler'
-import { FormFieldGetFn } from './FormFieldGetFn'
-import { FormFieldHandler } from './FormFieldHandler'
-import { FormFieldSetFn } from './FormFieldSetFn'
+import { FormGroupGetFn } from './FormGroupGetFn'
+import { FormGroupHandler } from './FormGroupHandler'
+import { FormGroupSetFn } from './FormGroupSetFn'
 import { RegisterToComponent } from './RegisterToComponent'
 import { RegisterToHtml } from './RegisterToHtml'
 
 /**
- * Generate {@link FormFieldHandler} from given {@link FormProps}
+ * Generate {@link FormGroupHandler} from given {@link FormProps}
  *
  * @param props
  * @param mergeFn
  * @returns
  */
-export function getFormFieldHandler<T>(
+export function getFormGroupHandler<T>(
   props: FormProps<T>,
   mergeFn?: MergeFn<T>
-): FormFieldHandler<T> {
+): FormGroupHandler<T> {
   const { value, setValue, pass, passComponent, key } = getFormHandler(props)
 
   const mergeValueFn: MergeFn<T> = mergeFn ?? mergeObject
 
-  const getField: FormFieldGetFn<T> = (propKey, defaultFieldValue) =>
+  const getField: FormGroupGetFn<T> = (propKey, defaultFieldValue) =>
     value !== undefined && value[propKey] !== undefined
       ? value[propKey]
       : defaultFieldValue
-  const setField: FormFieldSetFn<T> = (propKey, newFieldValue) =>
+  const setField: FormGroupSetFn<T> = (propKey, newFieldValue) =>
     setValue(mergeValueFn(value, propKey, newFieldValue))
 
   const register: RegisterToHtml<T> = (key, toTypeResolver, toTextResolver) => {
