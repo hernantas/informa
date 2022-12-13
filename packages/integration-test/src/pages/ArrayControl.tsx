@@ -1,24 +1,24 @@
 import { useFormArray } from 'informa'
+import { Button } from '../components/Button'
+import { StringField } from '../components/Field'
 import { TestContainer } from '../components/TestContainer'
 
 export function ArrayControl() {
-  const { value, handlers, append, removeAt } = useFormArray({
+  const { value, handlers, append, removeAt } = useFormArray<string>({
     value: [undefined],
   })
 
-  const children = handlers.map(({ key, pass }, index) => (
+  const children = handlers.map(({ key, passComponent }, index) => (
     <div key={key}>
       <span>[{key}]</span>
-      <input type="text" {...pass((event) => event.target.value)} />
-      <button onClick={() => removeAt(index)}>Remove</button>
+      <StringField {...passComponent()} />
+      <Button onClick={() => removeAt(index)}>Remove</Button>
     </div>
   ))
 
   return (
     <TestContainer title="Array Control" result={value}>
-      <div>
-        <button onClick={() => append()}>Append</button>
-      </div>
+      <Button onClick={() => append()}>Append</Button>
       {children}
     </TestContainer>
   )

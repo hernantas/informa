@@ -1,5 +1,7 @@
 import { useFormGroup } from 'informa'
+import { BooleanField, StringField } from '../components/Field'
 import { TestContainer } from '../components/TestContainer'
+import { printObject } from '../util/printObject'
 
 interface User {
   id: number
@@ -9,11 +11,10 @@ interface User {
 }
 
 export function GroupControl() {
-  const { value, register } = useFormGroup<User>()
+  const { value, registerComponent } = useFormGroup<User>()
 
-  const result = `${value?.id}\n${value?.username}\n${value?.password}\n${
-    value?.active ? 'true' : 'false'
-  }`
+  const result = printObject(value)
+
   return (
     <TestContainer title="Field Control" result={result}>
       <table>
@@ -22,40 +23,28 @@ export function GroupControl() {
             <td>ID</td>
             <td>:</td>
             <td>
-              <input
-                type="text"
-                {...register('id', (e) => e.target.value as unknown as number)}
-              />
+              <StringField {...registerComponent('id')} />
             </td>
           </tr>
           <tr>
             <td>Username</td>
             <td>:</td>
             <td>
-              <input
-                type="text"
-                {...register('username', (e) => e.target.value)}
-              />
+              <StringField {...registerComponent('username')} />
             </td>
           </tr>
           <tr>
             <td>Password</td>
             <td>:</td>
             <td>
-              <input
-                type="text"
-                {...register('password', (e) => e.target.value)}
-              />
+              <StringField {...registerComponent('password')} />
             </td>
           </tr>
           <tr>
             <td>Active</td>
             <td>:</td>
             <td>
-              <input
-                type="checkbox"
-                {...register('active', (e) => e.target.checked)}
-              />
+              <BooleanField {...registerComponent('active')} />
             </td>
           </tr>
         </tbody>

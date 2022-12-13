@@ -1,5 +1,8 @@
 import { useFormGroup } from 'informa'
+import { Button } from '../components/Button'
+import { BooleanField, StringField } from '../components/Field'
 import { TestContainer } from '../components/TestContainer'
+import { printObject } from '../util/printObject'
 
 interface User {
   name: string
@@ -7,11 +10,10 @@ interface User {
 }
 
 export function Form() {
-  const { value, register, isProcessing, createAction } = useFormGroup<User>()
+  const { value, registerComponent, isProcessing, createAction } =
+    useFormGroup<User>()
 
-  const result = `{${Object.entries(value ?? {})
-    .map(([key, value]) => `${key}: ${value}`)
-    .join(', ')}}`
+  const result = printObject(value)
 
   const onSubmit = createAction(async () => {
     return new Promise((resolve) => {
@@ -30,21 +32,14 @@ export function Form() {
             <td>Name</td>
             <td>:</td>
             <td>
-              <input
-                type="text"
-                placeholder="Name"
-                {...register('name', (e) => e.target.value)}
-              />
+              <StringField {...registerComponent('name')} />
             </td>
           </tr>
           <tr>
             <td>Active</td>
             <td>:</td>
             <td>
-              <input
-                type="checkbox"
-                {...register('active', (e) => e.target.checked)}
-              />
+              <BooleanField {...registerComponent('active')} />
             </td>
           </tr>
         </tbody>
@@ -52,7 +47,7 @@ export function Form() {
           <tr>
             <td colSpan={3}>
               {!isProcessing() ? (
-                <button onClick={onSubmit}>Submit</button>
+                <Button onClick={onSubmit}>Submit</Button>
               ) : (
                 'Processing'
               )}
