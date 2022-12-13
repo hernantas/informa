@@ -1,4 +1,4 @@
-import { useForm } from 'informa'
+import { useFormGroup } from 'informa'
 import { TestContainer } from '../components/TestContainer'
 
 interface User {
@@ -7,7 +7,7 @@ interface User {
 }
 
 export function Form() {
-  const { value, register, isProcessing, createAction } = useForm<User>()
+  const { value, register, isProcessing, createAction } = useFormGroup<User>()
 
   const result = `{${Object.entries(value ?? {})
     .map(([key, value]) => `${key}: ${value}`)

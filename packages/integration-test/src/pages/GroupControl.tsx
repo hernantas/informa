@@ -1,4 +1,4 @@
-import { useFormFieldControl } from 'informa'
+import { useFormGroup } from 'informa'
 import { TestContainer } from '../components/TestContainer'
 
 interface User {
@@ -8,8 +8,8 @@ interface User {
   active: boolean
 }
 
-export function FieldControl() {
-  const { value, register } = useFormFieldControl<User>()
+export function GroupControl() {
+  const { value, register } = useFormGroup<User>()
 
   const result = `${value?.id}\n${value?.username}\n${value?.password}\n${
     value?.active ? 'true' : 'false'

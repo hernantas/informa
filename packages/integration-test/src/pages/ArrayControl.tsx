@@ -1,14 +1,12 @@
-import { useFormArrayControl } from 'informa'
+import { useFormArray } from 'informa'
 import { TestContainer } from '../components/TestContainer'
 
 export function ArrayControl() {
-  const { value, controllers, append, prepend, removeAt } = useFormArrayControl(
-    {
-      value: [undefined],
-    }
-  )
+  const { value, handlers, append, prepend, removeAt } = useFormArray({
+    value: [undefined],
+  })
 
-  const children = controllers.map(({ key, pass }, index) => (
+  const children = handlers.map(({ key, pass }, index) => (
     <div key={key}>
       <span>[{key}]</span>
       <input type="text" {...pass((event) => event.target.value)} />

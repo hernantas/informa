@@ -1,12 +1,13 @@
 import { getFormArrayHandler } from '../../handler/array/getFormArrayHandler'
 import { FormProps } from '../../props/FormProps'
+import { useAction } from '../../state/action/useAction'
 import { useValue } from '../../state/value/useValue'
 import { FormArrayControl } from './FormArrayControl'
 
-export function useFormArrayControl<T>(
-  props?: FormProps<T[]>
-): FormArrayControl<T> {
-  const valueState = useValue(props?.value)
+export function useFormArray<T>(props?: FormProps<T[]>): FormArrayControl<T> {
+  const { value: stateValue, setValue: setStateValue } = useValue(props?.value)
+  const { actionCount, isProcessing, isProcessed, clearAction, createAction } =
+    useAction(stateValue)
 
   const {
     value,
@@ -22,8 +23,8 @@ export function useFormArrayControl<T>(
     prepend,
     removeAt,
   } = getFormArrayHandler({
-    value: valueState.value,
-    onChange: valueState.setValue,
+    value: stateValue,
+    onChange: setStateValue,
   })
 
   return {
@@ -39,5 +40,10 @@ export function useFormArrayControl<T>(
     append,
     prepend,
     removeAt,
+    actionCount,
+    isProcessing,
+    isProcessed,
+    clearAction,
+    createAction,
   }
 }

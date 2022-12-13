@@ -1,8 +1,8 @@
-import { useFormControl } from 'informa'
+import { useForm } from 'informa'
 import { TestContainer } from '../components/TestContainer'
 
 export function Control() {
-  const { value, pass } = useFormControl({
+  const { value, pass } = useForm({
     value: '',
   })
 

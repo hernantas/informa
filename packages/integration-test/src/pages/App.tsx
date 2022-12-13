@@ -1,13 +1,13 @@
 import { ArrayControl } from './ArrayControl'
 import { Control } from './Control'
-import { FieldControl } from './FieldControl'
+import { GroupControl } from './GroupControl'
 import { Form } from './Form'
 
 export function App() {
   return (
     <>
       <Control />
-      <FieldControl />
+      <GroupControl />
       <ArrayControl />
       <Form />
     </>
