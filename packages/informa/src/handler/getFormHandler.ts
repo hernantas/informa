@@ -1,8 +1,8 @@
-import { ChangeFn } from '../props/ChangeFn'
-import { FormProps } from '../props/FormProps'
+import { ChangeFn } from '../type/ChangeFn'
 import { resolveToText } from '../util/resolver/resolveToText'
 import { ToTextResolverFn } from '../util/resolver/ToTextResolverFn'
 import { FormHandler } from './FormHandler'
+import { FormProps } from './FormProps'
 import { PassToComponent } from './PassToComponent'
 import { PassToHtml } from './PassToHtml'
 
@@ -13,9 +13,9 @@ import { PassToHtml } from './PassToHtml'
  * @returns
  */
 export function getFormHandler<T>(props: FormProps<T>): FormHandler<T> {
-  const { value, onChange, key } = props
+  const { value, key } = props
 
-  const setValue: ChangeFn<T> = onChange ?? (() => void 0)
+  const setValue: ChangeFn<T> = props.setValue ?? (() => void 0)
 
   const pass: PassToHtml<T> = (toTypeResolver, toTextResolver) => {
     const toTextResolverFn: ToTextResolverFn<T> =
@@ -29,7 +29,7 @@ export function getFormHandler<T>(props: FormProps<T>): FormHandler<T> {
 
   const passComponent: PassToComponent<T> = () => ({
     value,
-    onChange: setValue,
+    setValue,
     key,
   })
 

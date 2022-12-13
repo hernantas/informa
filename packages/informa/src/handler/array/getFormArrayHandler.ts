@@ -1,4 +1,4 @@
-import { FormProps } from '../../props/FormProps'
+import { FormProps } from '../FormProps'
 import { DeepPartial } from '../../type/DeepPartial'
 import { generateKey } from '../../util/generateKey'
 import { mergeArray } from '../../util/merge/mergeArray'
@@ -33,7 +33,7 @@ export function getFormArrayHandler<T>(
   const handlers = values
     .map<FormProps<T>>((value, index) => ({
       value,
-      onChange: (newFieldValue) => setField(index, newFieldValue),
+      setValue: (newFieldValue) => setField(index, newFieldValue),
     }))
     .map<FormGroupHandler<T>>((props, index) =>
       getFormGroupHandler({

@@ -1,11 +1,11 @@
 import { getFormGroupHandler } from '../../handler/group/getFormGroupHandler'
-import { FormProps } from '../../props/FormProps'
+import { FormProps } from '../../handler/FormProps'
 import { useAction } from '../../state/action/useAction'
 import { useValue } from '../../state/value/useValue'
 import { FormGroupControl } from './FormGroupControl'
 
 export function useFormGroup<T>(props?: FormProps<T>): FormGroupControl<T> {
-  const { value: stateValue, setValue: setStateValue } = useValue(props?.value)
+  const valueState = useValue(props)
   const {
     value,
     setValue,
@@ -17,12 +17,11 @@ export function useFormGroup<T>(props?: FormProps<T>): FormGroupControl<T> {
     register,
     registerComponent,
   } = getFormGroupHandler({
-    value: stateValue,
-    onChange: setStateValue,
+    ...valueState,
   })
 
   const { actionCount, isProcessing, isProcessed, clearAction, createAction } =
-    useAction(stateValue)
+    useAction(value)
 
   return {
     value,

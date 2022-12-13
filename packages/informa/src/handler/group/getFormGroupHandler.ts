@@ -1,6 +1,6 @@
 import { MergeFn } from '../../util/merge/MergeFn'
 import { mergeObject } from '../../util/merge/mergeObject'
-import { FormProps } from '../../props/FormProps'
+import { FormProps } from '../FormProps'
 import { resolveToText } from '../../util/resolver/resolveToText'
 import { getFormHandler } from '../getFormHandler'
 import { FormGroupGetFn } from './FormGroupGetFn'
@@ -40,7 +40,7 @@ export function getFormGroupHandler<T>(
   }
   const registerComponent: RegisterToComponent<T> = (propKey) => ({
     value: getField(propKey),
-    onChange: (fieldValue) => setField(propKey, fieldValue),
+    setValue: (fieldValue) => setField(propKey, fieldValue),
   })
 
   return {

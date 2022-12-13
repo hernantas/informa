@@ -1,4 +1,4 @@
-import { FormProps } from '../../props/FormProps'
+import { FormProps } from '../FormProps'
 
 /**
  * Function interface that generate {@link FormProps} that handle (its value and

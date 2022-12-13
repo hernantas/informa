@@ -1,18 +1,17 @@
 import { getFormHandler } from '../handler/getFormHandler'
-import { FormProps } from '../props/FormProps'
+import { FormProps } from '../handler/FormProps'
 import { useAction } from '../state/action/useAction'
 import { useValue } from '../state/value/useValue'
 import { FormControl } from './FormControl'
 
 export function useForm<T>(props?: FormProps<T>): FormControl<T> {
-  const { value: stateValue, setValue: setStateValue } = useValue(props?.value)
+  const valueState = useValue(props)
   const { value, setValue, pass, passComponent, key } = getFormHandler({
-    value: stateValue,
-    onChange: setStateValue,
+    ...valueState,
   })
 
   const { actionCount, isProcessing, isProcessed, clearAction, createAction } =
-    useAction(stateValue)
+    useAction(value)
 
   return {
     value,
