@@ -8,10 +8,10 @@ export interface TestContainerProps {
 
 export function TestContainer(props: TestContainerProps) {
   return (
-    <div style={{ border: '1px solid #eee', padding: '1rem' }}>
-      <h1 style={{ margin: 0 }}>{props.title}</h1>
-      <div>{props.children}</div>
-      <div style={{ fontSize: '0.8rem', color: '#3f3f3f' }}>
+    <div className="border p-4 m-4">
+      <h1 className="text-3xl">{props.title}</h1>
+      <div className="mt-4">{props.children}</div>
+      <div className="mt-4 pt-2 border-t text-sm text-slate-500">
         {String(props.result)}
       </div>
     </div>

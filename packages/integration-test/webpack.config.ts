@@ -32,6 +32,10 @@ const config: Configuration & DevConfiguration = {
         exclude: /(node_modules)/,
         use: { loader: 'swc-loader', options: swcConfig },
       },
+      {
+        test: /.css$/,
+        use: ['style-loader', 'css-loader', 'postcss-loader'],
+      },
     ],
   },
   resolve: {
