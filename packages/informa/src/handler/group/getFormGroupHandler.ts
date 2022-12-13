@@ -30,6 +30,9 @@ export function getFormGroupHandler<T>(
     touched,
     markTouched,
     resetTouched,
+    error,
+    setError,
+    clearError,
     reset,
     pass,
     passComponent,
@@ -61,6 +64,9 @@ export function getFormGroupHandler<T>(
     touched,
     markTouched,
     resetTouched,
+    error,
+    setError,
+    clearError,
   })
 
   return {
@@ -73,6 +79,9 @@ export function getFormGroupHandler<T>(
     touched,
     markTouched,
     resetTouched,
+    error,
+    setError,
+    clearError,
     reset,
     pass,
     passComponent,

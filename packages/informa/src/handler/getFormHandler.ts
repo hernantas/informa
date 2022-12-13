@@ -1,3 +1,4 @@
+import { Dispatch, SetStateAction } from 'react'
 import { Action } from '../type/Action'
 import { ChangeFn } from '../type/ChangeFn'
 import { resolveToText } from '../util/resolver/resolveToText'
@@ -14,7 +15,7 @@ import { PassToHtml } from './PassToHtml'
  * @returns
  */
 export function getFormHandler<T>(props: FormProps<T>): FormHandler<T> {
-  const { value, key } = props
+  const { value, error, key } = props
 
   const dirty = props.dirty ?? false
   const markDirty: Action = props.markDirty ?? (() => void 0)
@@ -22,6 +23,9 @@ export function getFormHandler<T>(props: FormProps<T>): FormHandler<T> {
   const touched = props.touched ?? false
   const markTouched: Action = props.markTouched ?? (() => void 0)
   const resetTouched: Action = props.resetTouched ?? (() => void 0)
+  const setError: Dispatch<SetStateAction<unknown>> =
+    props.setError ?? (() => void 0)
+  const clearError: Action = props.clearError ?? (() => void 0)
 
   const setValue: ChangeFn<T> = (newValue) => {
     props.setValue?.call(undefined, newValue)
@@ -31,6 +35,7 @@ export function getFormHandler<T>(props: FormProps<T>): FormHandler<T> {
   const reset: Action = () => {
     resetDirty()
     resetTouched()
+    clearError()
   }
 
   const pass: PassToHtml<T> = (toTypeResolver, toTextResolver) => {
@@ -54,6 +59,9 @@ export function getFormHandler<T>(props: FormProps<T>): FormHandler<T> {
     touched,
     markTouched,
     resetTouched,
+    error,
+    setError,
+    clearError,
   })
 
   return {
@@ -66,6 +74,9 @@ export function getFormHandler<T>(props: FormProps<T>): FormHandler<T> {
     touched,
     markTouched,
     resetTouched,
+    error,
+    setError,
+    clearError,
     reset,
     pass,
     passComponent,

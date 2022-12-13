@@ -26,6 +26,9 @@ export function getFormArrayHandler<T>(
     touched,
     markTouched,
     resetTouched,
+    error,
+    setError,
+    clearError,
     reset,
     pass,
     passComponent,
@@ -46,6 +49,9 @@ export function getFormArrayHandler<T>(
       touched,
       markTouched,
       resetTouched,
+      error,
+      setError,
+      clearError,
     }))
     .map<FormGroupHandler<T>>((props, index) =>
       getFormGroupHandler({
@@ -69,6 +75,9 @@ export function getFormArrayHandler<T>(
     touched,
     markTouched,
     resetTouched,
+    error,
+    setError,
+    clearError,
     reset,
     pass,
     passComponent,

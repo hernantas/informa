@@ -2,6 +2,7 @@ import { getFormArrayHandler } from '../../handler/array/getFormArrayHandler'
 import { FormProps } from '../../handler/FormProps'
 import { useAction } from '../../state/action/useAction'
 import { useDirty } from '../../state/dirty/useDirty'
+import { useError } from '../../state/error/useError'
 import { useTouched } from '../../state/touched/useTouched'
 import { useValue } from '../../state/value/useValue'
 import { FormArrayControl } from './FormArrayControl'
@@ -10,6 +11,7 @@ export function useFormArray<T>(props?: FormProps<T[]>): FormArrayControl<T> {
   const valueState = useValue(props)
   const dirtyState = useDirty(props)
   const touchedState = useTouched(props)
+  const errorState = useError(props)
 
   const {
     key,
@@ -21,6 +23,9 @@ export function useFormArray<T>(props?: FormProps<T[]>): FormArrayControl<T> {
     touched,
     markTouched,
     resetTouched,
+    error,
+    setError,
+    clearError,
     reset,
     pass,
     passComponent,
@@ -35,6 +40,7 @@ export function useFormArray<T>(props?: FormProps<T[]>): FormArrayControl<T> {
     ...valueState,
     ...dirtyState,
     ...touchedState,
+    ...errorState,
   })
 
   const { actionCount, isProcessing, isProcessed, clearAction, createAction } =
@@ -50,6 +56,9 @@ export function useFormArray<T>(props?: FormProps<T[]>): FormArrayControl<T> {
     touched,
     markTouched,
     resetTouched,
+    error,
+    setError,
+    clearError,
     reset,
     pass,
     passComponent,
