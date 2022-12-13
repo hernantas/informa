@@ -17,7 +17,6 @@ export function useFormArray<T>(props?: FormProps<T[]>): FormArrayControl<T> {
     registerComponent,
     handlers,
     append,
-    prepend,
     removeAt,
   } = getFormArrayHandler({
     ...valueState,
@@ -37,7 +36,6 @@ export function useFormArray<T>(props?: FormProps<T[]>): FormArrayControl<T> {
     registerComponent,
     handlers,
     append,
-    prepend,
     removeAt,
     actionCount,
     isProcessing,

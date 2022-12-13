@@ -1,7 +1,6 @@
-import { FormProps } from '../FormProps'
-import { DeepPartial } from '../../type/DeepPartial'
 import { generateKey } from '../../util/generateKey'
 import { mergeArray } from '../../util/merge/mergeArray'
+import { FormProps } from '../FormProps'
 import { FormGroupHandler } from '../group/FormGroupHandler'
 import { getFormGroupHandler } from '../group/getFormGroupHandler'
 import { ArrayInsertFn } from './ArrayInsertFn'
@@ -44,13 +43,6 @@ export function getFormArrayHandler<T>(
 
   const append: ArrayInsertFn<T> = (...newValues) =>
     setValue(values.concat(newValues.length > 0 ? newValues : [undefined]))
-  const prepend: ArrayInsertFn<T> = (...newValues) =>
-    setValue(
-      (newValues.length > 0
-        ? newValues
-        : ([undefined] as (DeepPartial<T> | undefined)[])
-      ).concat(values)
-    )
   const removeAt: ArrayRemoveAtFn = (index: number) =>
     setValue(values.filter((_v, i) => i !== index))
 
@@ -65,7 +57,6 @@ export function getFormArrayHandler<T>(
     registerComponent,
     handlers,
     append,
-    prepend,
     removeAt,
   }
 }
