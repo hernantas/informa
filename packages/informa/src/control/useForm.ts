@@ -4,10 +4,13 @@ import { useAction } from '../state/action/useAction'
 import { useValue } from '../state/value/useValue'
 import { FormControl } from './FormControl'
 import { useDirty } from '../state/dirty/useDirty'
+import { useTouched } from '../state/touched/useTouched'
 
 export function useForm<T>(props?: FormProps<T>): FormControl<T> {
   const valueState = useValue(props)
   const dirtyState = useDirty(props)
+  const touchedState = useTouched(props)
+
   const {
     key,
     value,
@@ -15,12 +18,16 @@ export function useForm<T>(props?: FormProps<T>): FormControl<T> {
     dirty,
     markDirty,
     resetDirty,
+    touched,
+    markTouched,
+    resetTouched,
     reset,
     pass,
     passComponent,
   } = getFormHandler({
     ...valueState,
     ...dirtyState,
+    ...touchedState,
   })
 
   const { actionCount, isProcessing, isProcessed, clearAction, createAction } =
@@ -33,6 +40,9 @@ export function useForm<T>(props?: FormProps<T>): FormControl<T> {
     dirty,
     markDirty,
     resetDirty,
+    touched,
+    markTouched,
+    resetTouched,
     reset,
     pass,
     passComponent,

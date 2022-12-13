@@ -23,6 +23,9 @@ export function getFormArrayHandler<T>(
     dirty,
     markDirty,
     resetDirty,
+    touched,
+    markTouched,
+    resetTouched,
     reset,
     pass,
     passComponent,
@@ -37,6 +40,9 @@ export function getFormArrayHandler<T>(
     .map<FormProps<T>>((value, index) => ({
       value,
       setValue: (newFieldValue) => setField(index, newFieldValue),
+      touched,
+      markTouched,
+      resetTouched,
     }))
     .map<FormGroupHandler<T>>((props, index) =>
       getFormGroupHandler({
@@ -57,6 +63,9 @@ export function getFormArrayHandler<T>(
     dirty,
     markDirty,
     resetDirty,
+    touched,
+    markTouched,
+    resetTouched,
     reset,
     pass,
     passComponent,

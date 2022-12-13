@@ -2,12 +2,14 @@ import { getFormArrayHandler } from '../../handler/array/getFormArrayHandler'
 import { FormProps } from '../../handler/FormProps'
 import { useAction } from '../../state/action/useAction'
 import { useDirty } from '../../state/dirty/useDirty'
+import { useTouched } from '../../state/touched/useTouched'
 import { useValue } from '../../state/value/useValue'
 import { FormArrayControl } from './FormArrayControl'
 
 export function useFormArray<T>(props?: FormProps<T[]>): FormArrayControl<T> {
   const valueState = useValue(props)
   const dirtyState = useDirty(props)
+  const touchedState = useTouched(props)
 
   const {
     key,
@@ -16,6 +18,9 @@ export function useFormArray<T>(props?: FormProps<T[]>): FormArrayControl<T> {
     dirty,
     markDirty,
     resetDirty,
+    touched,
+    markTouched,
+    resetTouched,
     reset,
     pass,
     passComponent,
@@ -29,6 +34,7 @@ export function useFormArray<T>(props?: FormProps<T[]>): FormArrayControl<T> {
   } = getFormArrayHandler({
     ...valueState,
     ...dirtyState,
+    ...touchedState,
   })
 
   const { actionCount, isProcessing, isProcessed, clearAction, createAction } =
@@ -41,6 +47,9 @@ export function useFormArray<T>(props?: FormProps<T[]>): FormArrayControl<T> {
     dirty,
     markDirty,
     resetDirty,
+    touched,
+    markTouched,
+    resetTouched,
     reset,
     pass,
     passComponent,

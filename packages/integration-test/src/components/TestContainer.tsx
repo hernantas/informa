@@ -4,6 +4,7 @@ export interface TestContainerProps {
   title: string
   result?: any
   dirty?: boolean
+  touched?: boolean
   children?: ReactNode
 }
 
@@ -14,6 +15,7 @@ export function TestContainer(props: TestContainerProps) {
       <div className="mt-4">{props.children}</div>
       <div className="mt-4 pt-2 border-t text-sm text-slate-500">
         <p>Dirty: {props.dirty ? 'true' : 'false'}</p>
+        <p>Touched: {props.touched ? 'true' : 'false'}</p>
         <p>Result: {String(props.result)}</p>
       </div>
     </div>

@@ -10,8 +10,14 @@ interface User {
 }
 
 export function Form() {
-  const { value, dirty, registerComponent, isProcessing, createAction } =
-    useFormGroup<User>()
+  const {
+    value,
+    dirty,
+    touched,
+    registerComponent,
+    isProcessing,
+    createAction,
+  } = useFormGroup<User>()
 
   const result = printObject(value)
 
@@ -25,7 +31,7 @@ export function Form() {
   })
 
   return (
-    <TestContainer title="Form" dirty={dirty} result={result}>
+    <TestContainer title="Form" dirty={dirty} touched={touched} result={result}>
       <table>
         <tbody>
           <tr>

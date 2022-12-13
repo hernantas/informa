@@ -27,6 +27,9 @@ export function getFormGroupHandler<T>(
     dirty,
     markDirty,
     resetDirty,
+    touched,
+    markTouched,
+    resetTouched,
     reset,
     pass,
     passComponent,
@@ -46,11 +49,15 @@ export function getFormGroupHandler<T>(
     return {
       value: toTextResolverFn(getField(key)),
       onChange: (event) => setField(key, toTypeResolver(event)),
+      onBlur: () => markTouched(),
     }
   }
   const registerComponent: RegisterToComponent<T> = (propKey) => ({
     value: getField(propKey),
     setValue: (fieldValue) => setField(propKey, fieldValue),
+    touched,
+    markTouched,
+    resetTouched,
   })
 
   return {
@@ -60,6 +67,9 @@ export function getFormGroupHandler<T>(
     dirty,
     markDirty,
     resetDirty,
+    touched,
+    markTouched,
+    resetTouched,
     reset,
     pass,
     passComponent,
