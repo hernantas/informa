@@ -4,7 +4,7 @@ import { StringField } from '../components/Field'
 import { TestContainer } from '../components/TestContainer'
 
 export function ArrayControl() {
-  const { value, handlers, append, removeAt } = useFormArray<string>({
+  const { value, handlers, dirty, append, removeAt } = useFormArray<string>({
     value: [undefined],
   })
 
@@ -17,7 +17,7 @@ export function ArrayControl() {
   ))
 
   return (
-    <TestContainer title="Array Control" result={value}>
+    <TestContainer title="Array Control" dirty={dirty} result={value}>
       <Button onClick={() => append()}>Append</Button>
       {children}
     </TestContainer>

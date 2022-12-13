@@ -11,12 +11,12 @@ interface User {
 }
 
 export function GroupControl() {
-  const { value, registerComponent } = useFormGroup<User>()
+  const { value, dirty, registerComponent } = useFormGroup<User>()
 
   const result = printObject(value)
 
   return (
-    <TestContainer title="Field Control" result={result}>
+    <TestContainer title="Field Control" dirty={dirty} result={result}>
       <table>
         <tbody>
           <tr>

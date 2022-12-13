@@ -3,10 +3,10 @@ import { StringField } from '../components/Field'
 import { TestContainer } from '../components/TestContainer'
 
 export function Control() {
-  const { value, passComponent } = useForm<string>()
+  const { value, dirty, passComponent } = useForm<string>()
 
   return (
-    <TestContainer title="Control" result={value}>
+    <TestContainer title="Control" dirty={dirty} result={value}>
       <StringField {...passComponent()} />
     </TestContainer>
   )
