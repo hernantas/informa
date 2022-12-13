@@ -15,8 +15,7 @@ import { PassToHtml } from './PassToHtml'
 export function getFormHandler<T>(props: FormProps<T>): FormHandler<T> {
   const { value, onChange, key } = props
 
-  const setValue: ChangeFn<T> = (newValue) =>
-    onChange !== undefined ? onChange(newValue) : void 0
+  const setValue: ChangeFn<T> = onChange ?? (() => void 0)
 
   const pass: PassToHtml<T> = (toTypeResolver, toTextResolver) => {
     const toTextResolverFn: ToTextResolverFn<T> =
