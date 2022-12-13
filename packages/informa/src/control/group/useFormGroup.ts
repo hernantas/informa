@@ -6,9 +6,6 @@ import { FormGroupControl } from './FormGroupControl'
 
 export function useFormGroup<T>(props?: FormProps<T>): FormGroupControl<T> {
   const { value: stateValue, setValue: setStateValue } = useValue(props?.value)
-  const { actionCount, isProcessing, isProcessed, clearAction, createAction } =
-    useAction(stateValue)
-
   const {
     value,
     setValue,
@@ -23,6 +20,9 @@ export function useFormGroup<T>(props?: FormProps<T>): FormGroupControl<T> {
     value: stateValue,
     onChange: setStateValue,
   })
+
+  const { actionCount, isProcessing, isProcessed, clearAction, createAction } =
+    useAction(stateValue)
 
   return {
     value,

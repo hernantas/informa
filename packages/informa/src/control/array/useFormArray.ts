@@ -6,9 +6,6 @@ import { FormArrayControl } from './FormArrayControl'
 
 export function useFormArray<T>(props?: FormProps<T[]>): FormArrayControl<T> {
   const { value: stateValue, setValue: setStateValue } = useValue(props?.value)
-  const { actionCount, isProcessing, isProcessed, clearAction, createAction } =
-    useAction(stateValue)
-
   const {
     value,
     setValue,
@@ -26,6 +23,9 @@ export function useFormArray<T>(props?: FormProps<T[]>): FormArrayControl<T> {
     value: stateValue,
     onChange: setStateValue,
   })
+
+  const { actionCount, isProcessing, isProcessed, clearAction, createAction } =
+    useAction(stateValue)
 
   return {
     value,
