@@ -8,14 +8,10 @@
     "directory": "packages/informa"
   },
   "keywords": [
-    "formik",
     "react",
-    "react-native",
     "form",
-    "validation",
     "forms",
-    "higher order component",
-    "hoc",
+    "validation",
     "hooks"
   ],
   "author": "Zulfikar Raditya Hernanta <hernantas@gmail.com>",
