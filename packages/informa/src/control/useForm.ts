@@ -1,11 +1,11 @@
-import { getForm } from '../handler/getForm'
 import { FormProps } from '../handler/FormProps'
+import { getForm } from '../handler/getForm'
 import { useAction } from '../state/action/useAction'
+import { useDirty } from '../state/dirty/useDirty'
+import { useError } from '../state/error/useError'
+import { useTouched } from '../state/touched/useTouched'
 import { useValue } from '../state/value/useValue'
 import { FormControl } from './FormControl'
-import { useDirty } from '../state/dirty/useDirty'
-import { useTouched } from '../state/touched/useTouched'
-import { useError } from '../state/error/useError'
 
 export function useForm<T>(props?: FormProps<T>): FormControl<T> {
   const valueState = useValue(props)
@@ -27,8 +27,8 @@ export function useForm<T>(props?: FormProps<T>): FormControl<T> {
     setError,
     clearError,
     reset,
+    passHtml,
     pass,
-    passComponent,
   } = getForm({
     ...valueState,
     ...dirtyState,
@@ -53,8 +53,8 @@ export function useForm<T>(props?: FormProps<T>): FormControl<T> {
     setError,
     clearError,
     reset,
+    passHtml,
     pass,
-    passComponent,
     actionCount,
     isProcessing,
     isProcessed,
