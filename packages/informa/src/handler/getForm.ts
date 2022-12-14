@@ -45,12 +45,10 @@ export function getForm<T>(props: FormProps<T>): FormHandler<T> {
       value: toTextResolverFn(value),
       onChange: (event) => setValue(toTypeResolver(event)),
       onBlur: () => markTouched(),
-      key,
     }
   }
 
   const passComponent: PassToComponent<T> = () => ({
-    key,
     value,
     setValue,
     dirty,
