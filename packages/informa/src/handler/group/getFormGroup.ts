@@ -34,8 +34,8 @@ export function getFormGroup<T>(
     setError,
     clearError,
     reset,
-    passHtml: pass,
-    pass: passComponent,
+    pass,
+    passComponent,
   } = getForm(props)
 
   const mergeValueFn: MergeFn<T> = mergeFn ?? mergeObject
@@ -77,11 +77,11 @@ export function getFormGroup<T>(
     setError,
     clearError,
     reset,
-    passHtml: pass,
-    pass: passComponent,
+    pass,
+    passComponent,
     getField,
     setField,
-    registerHtml: register,
-    register: registerComponent,
+    register,
+    registerComponent,
   }
 }

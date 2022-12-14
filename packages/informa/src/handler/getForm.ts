@@ -38,7 +38,7 @@ export function getForm<T>(props: FormProps<T>): FormHandler<T> {
     clearError()
   }
 
-  const passHtml: PassToHtml<T> = (toTypeResolver, toTextResolver) => {
+  const pass: PassToHtml<T> = (toTypeResolver, toTextResolver) => {
     const toTextResolverFn: ToTextResolverFn<T> =
       toTextResolver ?? resolveToText
     return {
@@ -48,7 +48,7 @@ export function getForm<T>(props: FormProps<T>): FormHandler<T> {
     }
   }
 
-  const pass: PassToComponent<T> = () => ({
+  const passComponent: PassToComponent<T> = () => ({
     value,
     setValue,
     dirty,
@@ -76,7 +76,7 @@ export function getForm<T>(props: FormProps<T>): FormHandler<T> {
     setError,
     clearError,
     reset,
-    passHtml,
     pass,
+    passComponent,
   }
 }

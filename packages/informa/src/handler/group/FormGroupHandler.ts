@@ -11,6 +11,6 @@ import { RegisterToHtml } from './RegisterToHtml'
 export interface FormGroupHandler<T> extends FormHandler<T> {
   getField: FormGroupGetFn<T>
   setField: FormGroupSetFn<T>
-  registerHtml: RegisterToHtml<T>
-  register: RegisterToComponent<T>
+  register: RegisterToHtml<T>
+  registerComponent: RegisterToComponent<T>
 }

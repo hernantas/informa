@@ -2,15 +2,8 @@ import { FormProps, useForm } from 'informa'
 import { mergeClass } from '../util/mergeClass'
 
 export function StringField(props: FormProps<string>) {
-  const {
-    dirty,
-    touched,
-    resetTouched,
-    error,
-    setError,
-    clearError,
-    passHtml: pass,
-  } = useForm(props)
+  const { dirty, touched, resetTouched, error, setError, clearError, pass } =
+    useForm(props)
   return (
     <>
       <input
@@ -44,7 +37,7 @@ export function StringField(props: FormProps<string>) {
 }
 
 export function BooleanField(props: FormProps<boolean>) {
-  const { passHtml: pass } = useForm(props)
+  const { pass } = useForm(props)
 
   return (
     <input
