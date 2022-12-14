@@ -2,7 +2,7 @@ import { generateKey } from '../../util/generateKey'
 import { mergeArray } from '../../util/merge/mergeArray'
 import { FormProps } from '../FormProps'
 import { FormGroupHandler } from '../group/FormGroupHandler'
-import { getFormGroupHandler } from '../group/getFormGroupHandler'
+import { getFormGroup } from '../group/getFormGroup'
 import { ArrayInsertFn } from './ArrayInsertFn'
 import { ArrayRemoveAtFn } from './ArrayRemoveAtFn'
 import { FormArrayHandler } from './FormArrayHandler'
@@ -13,9 +13,7 @@ import { FormArrayHandler } from './FormArrayHandler'
  * @param props
  * @returns
  */
-export function getFormArrayHandler<T>(
-  props: FormProps<T[]>
-): FormArrayHandler<T> {
+export function getFormArray<T>(props: FormProps<T[]>): FormArrayHandler<T> {
   const {
     key,
     value,
@@ -36,7 +34,7 @@ export function getFormArrayHandler<T>(
     setField,
     register,
     registerComponent,
-  } = getFormGroupHandler<T[]>(props, mergeArray)
+  } = getFormGroup<T[]>(props, mergeArray)
   const values = value ?? []
 
   const handlers = values
@@ -48,7 +46,7 @@ export function getFormArrayHandler<T>(
       setError,
     }))
     .map<FormGroupHandler<T>>((props, index) =>
-      getFormGroupHandler({
+      getFormGroup({
         ...props,
         key: generateKey(index, key),
       })

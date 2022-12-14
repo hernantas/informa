@@ -2,7 +2,7 @@ import { MergeFn } from '../../util/merge/MergeFn'
 import { mergeObject } from '../../util/merge/mergeObject'
 import { FormProps } from '../FormProps'
 import { resolveToText } from '../../util/resolver/resolveToText'
-import { getFormHandler } from '../getFormHandler'
+import { getForm } from '../getForm'
 import { FormGroupGetFn } from './FormGroupGetFn'
 import { FormGroupHandler } from './FormGroupHandler'
 import { FormGroupSetFn } from './FormGroupSetFn'
@@ -16,7 +16,7 @@ import { RegisterToHtml } from './RegisterToHtml'
  * @param mergeFn
  * @returns
  */
-export function getFormGroupHandler<T>(
+export function getFormGroup<T>(
   props: FormProps<T>,
   mergeFn?: MergeFn<T>
 ): FormGroupHandler<T> {
@@ -36,7 +36,7 @@ export function getFormGroupHandler<T>(
     reset,
     pass,
     passComponent,
-  } = getFormHandler(props)
+  } = getForm(props)
 
   const mergeValueFn: MergeFn<T> = mergeFn ?? mergeObject
 

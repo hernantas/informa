@@ -1,4 +1,4 @@
-import { getFormArrayHandler } from '../../handler/array/getFormArrayHandler'
+import { getFormArray } from '../../handler/array/getFormArray'
 import { FormProps } from '../../handler/FormProps'
 import { useAction } from '../../state/action/useAction'
 import { useDirty } from '../../state/dirty/useDirty'
@@ -36,7 +36,7 @@ export function useFormArray<T>(props?: FormProps<T[]>): FormArrayControl<T> {
     handlers,
     append,
     removeAt,
-  } = getFormArrayHandler({
+  } = getFormArray({
     ...valueState,
     ...dirtyState,
     ...touchedState,

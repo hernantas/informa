@@ -1,5 +1,5 @@
 import { FormProps } from '../../handler/FormProps'
-import { getFormGroupHandler } from '../../handler/group/getFormGroupHandler'
+import { getFormGroup } from '../../handler/group/getFormGroup'
 import { useAction } from '../../state/action/useAction'
 import { useDirty } from '../../state/dirty/useDirty'
 import { useError } from '../../state/error/useError'
@@ -33,7 +33,7 @@ export function useFormGroup<T>(props?: FormProps<T>): FormGroupControl<T> {
     setField,
     register,
     registerComponent,
-  } = getFormGroupHandler({
+  } = getFormGroup({
     ...valueState,
     ...dirtyState,
     ...touchedState,

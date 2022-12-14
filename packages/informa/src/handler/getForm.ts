@@ -14,7 +14,7 @@ import { PassToHtml } from './PassToHtml'
  * @param props
  * @returns
  */
-export function getFormHandler<T>(props: FormProps<T>): FormHandler<T> {
+export function getForm<T>(props: FormProps<T>): FormHandler<T> {
   const { value, error, key } = props
 
   const dirty = props.dirty ?? false

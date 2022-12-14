@@ -1,4 +1,4 @@
-import { getFormHandler } from '../handler/getFormHandler'
+import { getForm } from '../handler/getForm'
 import { FormProps } from '../handler/FormProps'
 import { useAction } from '../state/action/useAction'
 import { useValue } from '../state/value/useValue'
@@ -29,7 +29,7 @@ export function useForm<T>(props?: FormProps<T>): FormControl<T> {
     reset,
     pass,
     passComponent,
-  } = getFormHandler({
+  } = getForm({
     ...valueState,
     ...dirtyState,
     ...touchedState,
